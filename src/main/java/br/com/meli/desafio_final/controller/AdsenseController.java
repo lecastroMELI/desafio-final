@@ -4,17 +4,13 @@ package br.com.meli.desafio_final.controller;
 import br.com.meli.desafio_final.dto.*;
 import br.com.meli.desafio_final.model.entity.Adsense;
 import br.com.meli.desafio_final.model.enums.Category;
-import br.com.meli.desafio_final.repository.BatchRepository;
 import br.com.meli.desafio_final.service.implementation.AdsenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/adsense")
@@ -61,7 +57,17 @@ public class AdsenseController {
     }
 
     @PutMapping("/{adsenseId}")
-    public ResponseEntity<AdsenseUpdateDto> updateAdsense(@RequestBody Adsense adsense, @PathVariable Long adsenseId) {
-        return ResponseEntity.status(HttpStatus.OK).body(adsenseService.updateAdsenseById(adsense, adsenseId));
+    public ResponseEntity<AdsenseUpdateDto> updateAdsense(
+        @RequestBody Adsense adsense,
+        @PathVariable Long adsenseId,
+        @RequestParam Long sellerId) {
+        return ResponseEntity.status(HttpStatus.OK).body(
+            adsenseService.updateAdsenseById(adsense, adsenseId, sellerId));
+    }
+
+    @DeleteMapping("/{adsenseId}")
+    public ResponseEntity.BodyBuilder deleteAdsense(@PathVariable Long adsenseId) {
+        adsenseService.deleteAdsenseById(adsenseId);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT);
     }
 }

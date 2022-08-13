@@ -123,9 +123,14 @@ public class AdsenseService implements IAdsenseService {
     }
 
     @Override
-    public AdsenseUpdateDto updateAdsenseById(Adsense adsense, Long adsenseId) {
-        Product product = productService.findById(adsense.getProduct().getId());
+    public AdsenseUpdateDto updateAdsenseById(Adsense adsense, Long adsenseId, Long sellerId) {
         Adsense adsenseFound = findById(adsenseId);
+
+        if (!sellerId.equals(adsenseFound.getSeller().getId())) {
+            throw new BadRequest("Vendendor não é o proprietário deste anúncio.");
+        }
+
+        Product product = productService.findById(adsense.getProduct().getId());
 
         adsenseFound.setProduct(adsense.getProduct());
         adsenseFound.setPrice(adsense.getPrice());
@@ -136,8 +141,13 @@ public class AdsenseService implements IAdsenseService {
     }
 
     @Override
-    public void deleteAdsenseById(Adsense adsense) {
+    public void deleteAdsenseById(Long id) {
+        Adsense adsenseFound = findById(id);
+        if (adsenseFound == null) {
+            throw new NotFound("Anúncio não encontrado.");
+        }
 
+        adsenseRepository.deleteById(id);
     }
 }
 

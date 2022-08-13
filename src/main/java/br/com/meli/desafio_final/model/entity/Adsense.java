@@ -34,11 +34,11 @@ public class Adsense {
     @NotNull(message = "O Preço do produto precisa ser informado.")
     private double price;
 
-    @OneToMany(mappedBy = "adsense")
+    @OneToMany(mappedBy = "adsense", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties("adsense")
     private List<Batch> batchList;
 
-    @OneToMany(mappedBy = "adsense")
+    @OneToMany(mappedBy = "adsense", cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties("adsense")
     private List<Item> itemList;
 }
