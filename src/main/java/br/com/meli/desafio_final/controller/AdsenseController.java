@@ -1,10 +1,7 @@
 package br.com.meli.desafio_final.controller;
 
 
-import br.com.meli.desafio_final.dto.AdsenseByWarehouseDto;
-import br.com.meli.desafio_final.dto.AdsenseDto;
-import br.com.meli.desafio_final.dto.AdsenseIdDto;
-import br.com.meli.desafio_final.dto.AdsenseInsertDto;
+import br.com.meli.desafio_final.dto.*;
 import br.com.meli.desafio_final.model.entity.Adsense;
 import br.com.meli.desafio_final.model.enums.Category;
 import br.com.meli.desafio_final.repository.BatchRepository;
@@ -61,5 +58,10 @@ public class AdsenseController {
     @PostMapping("/insert")
     public ResponseEntity<AdsenseInsertDto> createAdsense(@RequestBody Adsense newAdsense) {
         return ResponseEntity.status(HttpStatus.CREATED).body(adsenseService.insertAdsense(newAdsense));
+    }
+
+    @PutMapping("/{adsenseId}")
+    public ResponseEntity<AdsenseUpdateDto> updateAdsense(@RequestBody Adsense adsense, @PathVariable Long adsenseId) {
+        return ResponseEntity.status(HttpStatus.OK).body(adsenseService.updateAdsenseById(adsense, adsenseId));
     }
 }

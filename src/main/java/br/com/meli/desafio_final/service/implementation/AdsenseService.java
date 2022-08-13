@@ -2,6 +2,7 @@ package br.com.meli.desafio_final.service.implementation;
 
 import br.com.meli.desafio_final.dto.AdsenseByWarehouseDto;
 import br.com.meli.desafio_final.dto.AdsenseInsertDto;
+import br.com.meli.desafio_final.dto.AdsenseUpdateDto;
 import br.com.meli.desafio_final.exception.BadRequest;
 import br.com.meli.desafio_final.exception.NotFound;
 import br.com.meli.desafio_final.model.entity.Adsense;
@@ -122,12 +123,22 @@ public class AdsenseService implements IAdsenseService {
     }
 
     @Override
-    public void updateAdsenseById(Long id) {
+    public AdsenseUpdateDto updateAdsenseById(Adsense adsense, Long adsenseId) {
+        Product product = productService.findById(adsense.getProduct().getId());
+        Adsense adsenseFound = findById(adsenseId);
 
+        adsenseFound.setProduct(adsense.getProduct());
+        adsenseFound.setPrice(adsense.getPrice());
+
+        adsenseRepository.save(adsenseFound);
+
+        return new AdsenseUpdateDto(adsenseFound, product);
     }
 
     @Override
-    public void deleteAdsenseById(Long id) {
+    public void deleteAdsenseById(Adsense adsense) {
 
     }
 }
+
+// TODO : ADSENSE: MELHORIAS: UPDATE SÓ É PERMITIDO SE NÃO HOUVE NENHUMA VENDA
