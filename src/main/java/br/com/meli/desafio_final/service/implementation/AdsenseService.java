@@ -5,6 +5,8 @@ import br.com.meli.desafio_final.dto.AdsenseInsertDto;
 import br.com.meli.desafio_final.exception.BadRequest;
 import br.com.meli.desafio_final.exception.NotFound;
 import br.com.meli.desafio_final.model.entity.Adsense;
+import br.com.meli.desafio_final.model.entity.Product;
+import br.com.meli.desafio_final.model.entity.Seller;
 import br.com.meli.desafio_final.model.enums.Category;
 import br.com.meli.desafio_final.repository.AdsenseRepository;
 import br.com.meli.desafio_final.repository.ProductRepository;
@@ -30,6 +32,9 @@ public class AdsenseService implements IAdsenseService {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private SellerRepository sellerRepository;
 
     /**
      * Nesse método estamos retornado/ consultando anúncio Id
@@ -101,13 +106,19 @@ public class AdsenseService implements IAdsenseService {
      * @return
      */
     @Override
-    public AdsenseInsertDto insertAdsense(Adsense newAdsense, Long sellerId) {
+    public AdsenseInsertDto insertAdsense(Adsense newAdsense) {
         if (newAdsense.getId() != null) {
             throw new BadRequest("⚠️ O anúncio não pode conter um ID.");
         }
+
+        Product product = productService.findById(newAdsense.getProduct().getId());
+
+        Seller seller = sellerRepository
+            .findById(newAdsense.getSeller().getId())
+            .orElseThrow(() -> { throw new NotFound("Seller não cadastrado"); });
+
         adsenseRepository.save(newAdsense);
-        String productName = productService.findById(newAdsense.getProduct().getId()).getName();
-        return new AdsenseInsertDto(newAdsense, productName);
+        return new AdsenseInsertDto(newAdsense, product, seller);
     }
 
     @Override

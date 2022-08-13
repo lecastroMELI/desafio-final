@@ -59,7 +59,7 @@ public class AdsenseController {
 
 
     @PostMapping("/insert")
-    public ResponseEntity<AdsenseInsertDto> createAdsense(@RequestBody Adsense newAdsense, @RequestParam Long sellerId) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(adsenseService.insertAdsense(newAdsense, sellerId));
+    public ResponseEntity<AdsenseInsertDto> createAdsense(@RequestBody Adsense newAdsense) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(adsenseService.insertAdsense(newAdsense));
     }
 }

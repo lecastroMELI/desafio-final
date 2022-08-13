@@ -21,18 +21,15 @@ public class AdsenseInsertDto {
 
     private Long adsenseId;
     private Double price;
-    private Long sellerId;
-    // private String sellerName;
-    private Long productId;
-    private String productName;
 
-    public AdsenseInsertDto(Adsense adsense, String prodName) {
+    private Seller seller;
+    private Product product;
+
+    public AdsenseInsertDto(Adsense adsense, Product prod, Seller sell) {
         setAdsenseId(adsense.getId());
         setPrice(adsense.getPrice());
-        setSellerId(adsense.getSeller().getId());
-        // setSellerName(adsense.getSeller().getName());
-        setProductId(adsense.getProduct().getId());
-        setProductName(prodName);
+        setProduct(prod);
+        setSeller(sell);
     }
 
 }

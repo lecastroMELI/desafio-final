@@ -16,7 +16,7 @@ public interface IAdsenseService {
     List<AdsenseByWarehouseDto> findAdsenseByWarehouseAndQuantity(Long adsenseId);
     List<AdsenseIdDto> findByProductId(Long productId);
 
-    AdsenseInsertDto insertAdsense(Adsense newAdsense, Long sellerId);
+    AdsenseInsertDto insertAdsense(Adsense newAdsense);
     void updateAdsenseById(Long id);
     void deleteAdsenseById(Long id);
 }
