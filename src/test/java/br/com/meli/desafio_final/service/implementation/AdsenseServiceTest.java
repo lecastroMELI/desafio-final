@@ -14,7 +14,6 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatchers;
 import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -36,12 +35,11 @@ import static org.mockito.ArgumentMatchers.*;
 @MockitoSettings(strictness = Strictness.LENIENT)
 public class AdsenseServiceTest {
 
-    // TODO: PADRONIZAR NOME DOS MOCKS
     @InjectMocks
-    private AdsenseService service;
+    private AdsenseService adsenseService;
 
     @Mock
-    private AdsenseRepository repository;
+    private AdsenseRepository adsenseRepository;
 
     @Mock
     private BatchService batchService;
@@ -58,10 +56,10 @@ public class AdsenseServiceTest {
 
     @Test
     public void find_findByCategory_whenAdsensesByCategoryExist() {
-        BDDMockito.when(repository.findAll())
+        BDDMockito.when(adsenseRepository.findAll())
                 .thenReturn(AdsenseUtils.generateAdsenseList());
 
-        List<Adsense> adsenseList = service.findByCategory(Category.FRESH);
+        List<Adsense> adsenseList = adsenseService.findByCategory(Category.FRESH);
 
         Assertions.assertThat(adsenseList).isNotNull();
         Assertions.assertThat(adsenseList.size()).isEqualTo(2);
@@ -69,15 +67,15 @@ public class AdsenseServiceTest {
 
     @Test
     public void find_findByCategory_whenAdsensesByCategoryDontExist() {
-        BDDMockito.when(repository.findAll()).thenReturn(Collections.emptyList());
+        BDDMockito.when(adsenseRepository.findAll()).thenReturn(Collections.emptyList());
         Exception exception = null;
         List<Adsense> adsenseList = null;
         try {
-            adsenseList = service.findByCategory(Category.FRESH);
+            adsenseList = adsenseService.findByCategory(Category.FRESH);
         } catch (Exception e) {
             exception = e;
         }
-        verify(repository, atLeastOnce()).findAll();
+        verify(adsenseRepository, atLeastOnce()).findAll();
         Assertions.assertThat(adsenseList).isNull();
         assertThat(exception.getMessage()).isEqualTo("💢 Lista de anúncios não encontrada");
         // TODO: Mensagem do erro
@@ -86,12 +84,12 @@ public class AdsenseServiceTest {
     @Test
     @DisplayName("Busca pelo ID: Valida se retorna um anúncio completo quando o ID é válido.")
     void findById_returnAdsense_whenIdIsValid() {
-        BDDMockito.when(repository.findById(anyLong()))
+        BDDMockito.when(adsenseRepository.findById(anyLong()))
             .thenReturn(Optional.of(AdsenseUtils.newAdsense1ToSave()));
 
         Adsense adsense = AdsenseUtils.newAdsense1ToSave();
 
-        Adsense adsenseFound = service.findById(1L);
+        Adsense adsenseFound = adsenseService.findById(1L);
 
         assertThat(adsenseFound).isNotNull();
         assertThat(adsenseFound.getId()).isEqualTo(adsense.getId());
@@ -101,17 +99,17 @@ public class AdsenseServiceTest {
     @DisplayName("Busca pelo ID: Valida se dispara a exceção NOT FOUND quando o ID é inválido.")
     void findById_throwException_whenIdInvalid() {
         assertThrows(NotFound.class, () -> {
-           service.findById(0L);
+           adsenseService.findById(0L);
         });
     }
 
     @Test
     @DisplayName("Listar anúncios: Valida se retorna uma lista de anúncios.")
     void findAll_returnListAdsense_whenAdsensesExists() {
-        BDDMockito.when(repository.findAll())
+        BDDMockito.when(adsenseRepository.findAll())
             .thenReturn(List.of(AdsenseUtils.newAdsense1ToSave()));
 
-        List<Adsense> adsenseList = service.findAll();
+        List<Adsense> adsenseList = adsenseService.findAll();
 
         assertThat(adsenseList).isNotNull();
         assertThat(adsenseList.size()).isEqualTo(1);
@@ -121,15 +119,15 @@ public class AdsenseServiceTest {
     @DisplayName("Listar anúncios: Valida se dispara a execeção NOT FOUND quando não há anúncios cadastrados.")
     void findAll_throwException_whenAdsensesNotExists() {
         assertThrows(NotFound.class, () -> {
-            service.findAll();
+            adsenseService.findAll();
         });
     }
 
     @Test
     void find_findAdsensesByProductId_whenSuccess() {
-        BDDMockito.when(repository.findAll())
+        BDDMockito.when(adsenseRepository.findAll())
                 .thenReturn(List.of(AdsenseUtils.newAdsense1ToSave()));
-        List<AdsenseIdDto> adsenseList = service.findByProductId(1L);
+        List<AdsenseIdDto> adsenseList = adsenseService.findByProductId(1L);
         List<AdsenseIdDto> newList = AdsenseIdDto.convertDto(List.of(AdsenseUtils.newAdsense1ToSave()));
         assertThat(adsenseList).isNotNull();
         assertThat(adsenseList.contains(newList));
@@ -142,7 +140,7 @@ public class AdsenseServiceTest {
         BDDMockito.when(batchService.getAdsenseByWarehouseAndQuantity(adsenseId))
                 .thenReturn(AdsenseByWarehouseDtoUtils.AdsenseByWarehouseDtoListDto());
 
-        List<AdsenseByWarehouseDto> adsenseList = service.findAdsenseByWarehouseAndQuantity(adsenseId);
+        List<AdsenseByWarehouseDto> adsenseList = adsenseService.findAdsenseByWarehouseAndQuantity(adsenseId);
 
         Assertions.assertThat(adsenseList).isNotNull();
         Assertions.assertThat(adsenseList.size()).isEqualTo(4);
@@ -154,16 +152,16 @@ public class AdsenseServiceTest {
     void insertAdsense_returnAdsense_whenInsertedWithSuccess() {
         Adsense newAdsense = AdsenseInsertDtoUtils.newAdsenseInsertToSave();
 
-        BDDMockito.when(repository.save(newAdsense))
+        BDDMockito.when(adsenseRepository.save(newAdsense))
             .thenReturn(AdsenseUtils.adsenseWithId());
 
-        BDDMockito.when(productService.findById(ArgumentMatchers.anyLong()))
+        BDDMockito.when(productService.findById(anyLong()))
             .thenReturn(ProductUtils.newProduct5ToSave());
 
-        BDDMockito.when(sellerRepository.findById(ArgumentMatchers.anyLong()))
+        BDDMockito.when(sellerRepository.findById(anyLong()))
             .thenReturn(Optional.of(SellerUtils.newSeller3ToSave()));
 
-        AdsenseInsertDto adsenseInsertDto = service.insertAdsense(newAdsense);
+        AdsenseInsertDto adsenseInsertDto = adsenseService.insertAdsense(newAdsense);
 
         assertThat(adsenseInsertDto).isNotNull();
         assertThat(adsenseInsertDto.getSeller().getName()).isEqualTo("Mulher Maravilha");
@@ -175,7 +173,7 @@ public class AdsenseServiceTest {
     void insertAdsense_returnThrow_whenInsertedAdsWithId() {
         Adsense adsenseWithId = AdsenseUtils.adsenseWithId();
 
-        assertThrows(BadRequest.class, () -> service.insertAdsense(adsenseWithId));
+        assertThrows(BadRequest.class, () -> adsenseService.insertAdsense(adsenseWithId));
     }
 
     @Test
