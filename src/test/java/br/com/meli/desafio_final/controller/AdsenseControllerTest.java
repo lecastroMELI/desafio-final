@@ -131,6 +131,14 @@ public class AdsenseControllerTest {
 
     @Test
     void readAdsenseById() {
+        Long adsenseId = AdsenseUtils.adsenseWithId().getId();
+
+        BDDMockito.when(service.findById(anyLong()))
+            .thenReturn(AdsenseUtils.adsenseWithId());
+
+        ResponseEntity<AdsenseDto> response = controller.readAdsenseById(adsenseId);
+
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 
     @Test
