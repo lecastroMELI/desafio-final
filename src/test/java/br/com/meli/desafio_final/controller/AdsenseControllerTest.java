@@ -35,12 +35,11 @@ import static org.mockito.Mockito.*;
 @MockitoSettings(strictness = Strictness.LENIENT)
 public class AdsenseControllerTest {
 
-    // TODO: PADRONIZAR NOME DOS MOCKS
     @InjectMocks
-    private AdsenseController controller;
+    private AdsenseController adsenseController;
 
     @Mock
-    private AdsenseService service;
+    private AdsenseService adsenseService;
 
     // TODO: REMOVER A PALAVRA "TEST" DOS NOMES DOS MÉTODOS, POIS A MAIORIA NÃO POSSUI
     // TODO: ADICIONAR @DisplayName() AOS TESTES QUE NÃO O POSSUI
@@ -49,12 +48,12 @@ public class AdsenseControllerTest {
     @Test
     public void find_findByCategory_whenAdsensesByCategoryExist() {
         List<AdsenseDto> adsenseList = AdsenseUtilsDto.generateAdsenseDtoList();
-        BDDMockito.when(service.findByCategory(ArgumentMatchers.any(Category.class)))
+        BDDMockito.when(adsenseService.findByCategory(ArgumentMatchers.any(Category.class)))
                 .thenReturn(AdsenseUtils.generateAdsenseList());
 
-        ResponseEntity<List<AdsenseDto>> response = controller.findByCategory(Category.FRESH);
+        ResponseEntity<List<AdsenseDto>> response = adsenseController.findByCategory(Category.FRESH);
 
-        verify(service, atLeastOnce()).findByCategory(Category.FRESH);
+        verify(adsenseService, atLeastOnce()).findByCategory(Category.FRESH);
         Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         // TODO: AJUSTAR O IMPORT
         assertEquals(response.getBody().size(), 3);
@@ -66,12 +65,12 @@ public class AdsenseControllerTest {
     @Test
     @DisplayName("Listar anúncios: Valida se retorna uma lista de anúncios.")
     public void findAll_returnListAdsense_whenAdsensesExists() {
-        BDDMockito.when(service.findAll())
+        BDDMockito.when(adsenseService.findAll())
             .thenReturn(AdsenseUtils.generateAdsenseList());
 
         AdsenseDto adsenseDto = AdsenseUtilsDto.newAdsense1ToSave();
 
-        ResponseEntity<List<AdsenseDto>> response = controller.findAll();
+        ResponseEntity<List<AdsenseDto>> response = adsenseController.findAll();
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isNotNull();
@@ -84,29 +83,29 @@ public class AdsenseControllerTest {
     @Test
     @DisplayName("Listar anúncios: Valida se dispara a execeção NOT FOUND quando não há anúncios cadastrados.")
     public void findAll_throwException_whenAdsensesNotExists() {
-        BDDMockito.when(service.findAll())
+        BDDMockito.when(adsenseService.findAll())
             .thenAnswer((invocationOnMock) -> {
                 throw new NotFound("💢 Lista de anúncios não encontrada");
             });
 
         Exception exception = null;
         try {
-            controller.findAll();
+            adsenseController.findAll();
         } catch (NotFound ex) {
             exception = ex;
         }
 
-        verify(service, atLeastOnce()).findAll();
+        verify(adsenseService, atLeastOnce()).findAll();
         assertThat(exception.getMessage()).isEqualTo("💢 Lista de anúncios não encontrada");
     }
 
     @Test
     public void testGetByAdsenseByWarehouse() {
         long adsenseId = AdsenseUtils.newAdsense1ToSave().getId();
-        BDDMockito.when(service.findAdsenseByWarehouseAndQuantity(adsenseId))
+        BDDMockito.when(adsenseService.findAdsenseByWarehouseAndQuantity(adsenseId))
                 .thenReturn(AdsenseByWarehouseDtoUtils.AdsenseByWarehouseDtoListDto());
 
-        ResponseEntity <List<AdsenseByWarehouseDto>> response = controller.getByAdsenseByWarehouse(adsenseId);
+        ResponseEntity <List<AdsenseByWarehouseDto>> response = adsenseController.getByAdsenseByWarehouse(adsenseId);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isNotNull();
@@ -117,10 +116,10 @@ public class AdsenseControllerTest {
     void createAdsense() {
         Adsense newAdsense = AdsenseUtils.newAdsense3ToSave();
 
-        BDDMockito.when(service.insertAdsense(newAdsense))
+        BDDMockito.when(adsenseService.insertAdsense(newAdsense))
             .thenReturn(AdsenseInsertDtoUtils.adsenseWithId());
 
-        ResponseEntity<AdsenseInsertDto> response = controller.createAdsense(newAdsense);
+        ResponseEntity<AdsenseInsertDto> response = adsenseController.createAdsense(newAdsense);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
         assertThat(response.getBody()).isNotNull();
@@ -131,10 +130,10 @@ public class AdsenseControllerTest {
     void readAdsenseById() {
         Long adsenseId = AdsenseUtils.adsenseWithId().getId();
 
-        BDDMockito.when(service.findById(anyLong()))
+        BDDMockito.when(adsenseService.findById(anyLong()))
             .thenReturn(AdsenseUtils.adsenseWithId());
 
-        ResponseEntity<AdsenseDto> response = controller.readAdsenseById(adsenseId);
+        ResponseEntity<AdsenseDto> response = adsenseController.readAdsenseById(adsenseId);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
@@ -145,10 +144,10 @@ public class AdsenseControllerTest {
         Long adsenseId = AdsenseUtils.adsenseWithId().getId();
         Long sellerId = SellerUtils.newSeller3ToSave().getId();
 
-        BDDMockito.when(service.updateAdsenseById(adsense, adsenseId, sellerId))
+        BDDMockito.when(adsenseService.updateAdsenseById(adsense, adsenseId, sellerId))
             .thenReturn(AdsenseUpdateDtoUtils.adsenseUpdated());
 
-        ResponseEntity<AdsenseUpdateDto> response = controller.updateAdsense(adsense, adsenseId, sellerId);
+        ResponseEntity<AdsenseUpdateDto> response = adsenseController.updateAdsense(adsense, adsenseId, sellerId);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isExactlyInstanceOf(AdsenseUpdateDto.class);
@@ -159,13 +158,13 @@ public class AdsenseControllerTest {
         Adsense adsense = AdsenseUtils.adsenseWithId();
 
         BDDMockito.doNothing()
-            .when(service).deleteAdsenseById(anyLong());
+            .when(adsenseService).deleteAdsenseById(anyLong());
 
         assertThatCode(() -> {
-            controller.deleteAdsense(adsense.getId());
+            adsenseController.deleteAdsense(adsense.getId());
         }).doesNotThrowAnyException();
 
-        verify(service, atLeastOnce()).deleteAdsenseById(anyLong());
+        verify(adsenseService, atLeastOnce()).deleteAdsenseById(anyLong());
     }
 }
 
