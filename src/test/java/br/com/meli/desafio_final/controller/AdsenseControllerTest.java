@@ -38,21 +38,18 @@ public class AdsenseControllerTest {
     @Mock
     private AdsenseService adsenseService;
 
-    // TODO: REMOVER A PALAVRA "TEST" DOS NOMES DOS MÉTODOS, POIS A MAIORIA NÃO POSSUI
-    // TODO: ADICIONAR @DisplayName() AOS TESTES QUE NÃO O POSSUI
-    // TODO: ADICIONAR O public AOS MÉTODOS
-
     @Test
-    public void find_findByCategory_whenAdsensesByCategoryExist() {
+    @DisplayName("Busca pela categoria: valida se retornar uma lista de anúncios ao pesquisar pelo nome da categoria.")
+    void findByCategory() {
         List<AdsenseDto> adsenseList = AdsenseUtilsDto.generateAdsenseDtoList();
+
         BDDMockito.when(adsenseService.findByCategory(ArgumentMatchers.any(Category.class)))
-                .thenReturn(AdsenseUtils.generateAdsenseList());
+            .thenReturn(AdsenseUtils.generateAdsenseList());
 
         ResponseEntity<List<AdsenseDto>> response = adsenseController.findByCategory(Category.FRESH);
 
         verify(adsenseService, atLeastOnce()).findByCategory(Category.FRESH);
-        Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        // TODO: AJUSTAR O IMPORT
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertEquals(response.getBody().size(), 3);
         assertEquals(response.getBody().get(0).getPrice(), adsenseList.get(0).getPrice());
         assertEquals(response.getBody().get(0).getProduct().getId(), adsenseList.get(0).getProduct().getId());
@@ -60,8 +57,8 @@ public class AdsenseControllerTest {
     }
 
     @Test
-    @DisplayName("Listar anúncios: Valida se retorna uma lista de anúncios.")
-    public void findAll_returnListAdsense_whenAdsensesExists() {
+    @DisplayName("Listar anúncios: Valida se retorna uma lista de anúncios quando cadastrados.")
+    void findAll() {
         BDDMockito.when(adsenseService.findAll())
             .thenReturn(AdsenseUtils.generateAdsenseList());
 
@@ -79,7 +76,7 @@ public class AdsenseControllerTest {
 
     @Test
     @DisplayName("Listar anúncios: Valida se dispara a execeção NOT FOUND quando não há anúncios cadastrados.")
-    public void findAll_throwException_whenAdsensesNotExists() {
+    void findAll_error() {
         BDDMockito.when(adsenseService.findAll())
             .thenAnswer((invocationOnMock) -> {
                 throw new NotFound("💢 Lista de anúncios não encontrada");
@@ -97,8 +94,10 @@ public class AdsenseControllerTest {
     }
 
     @Test
-    public void testGetByAdsenseByWarehouse() {
+    @DisplayName("Valida se retorna a quantidade total de produtos por armazém, buscando pelo ID do anúncio.")
+    void getByAdsenseByWarehouse() {
         long adsenseId = AdsenseUtils.newAdsense1ToSave().getId();
+
         BDDMockito.when(adsenseService.findAdsenseByWarehouseAndQuantity(adsenseId))
                 .thenReturn(AdsenseByWarehouseDtoUtils.AdsenseByWarehouseDtoListDto());
 
@@ -110,6 +109,7 @@ public class AdsenseControllerTest {
     }
 
     @Test
+    @DisplayName("Criar anúncio: Valida se são retornados os dados do anúncio completo quando ele é criado com sucesso.")
     void createAdsense() {
         Adsense newAdsense = AdsenseUtils.newAdsense3ToSave();
 
@@ -124,6 +124,7 @@ public class AdsenseControllerTest {
     }
 
     @Test
+    @DisplayName("Listar anúncio: Valida se um anúncio completo é retornado quando o ID é válido.")
     void readAdsenseById() {
         Long adsenseId = AdsenseUtils.adsenseWithId().getId();
 
@@ -136,6 +137,7 @@ public class AdsenseControllerTest {
     }
 
     @Test
+    @DisplayName("Atualizar anúncio: Valida se retornado um anúncio atualizado quando o ID é válido.")
     void updateAdsense() {
         Adsense adsense = AdsenseUtils.adsenseWithId();
         Long adsenseId = AdsenseUtils.adsenseWithId().getId();
@@ -151,6 +153,7 @@ public class AdsenseControllerTest {
     }
 
     @Test
+    @DisplayName("Apagar anúncio: Valida se um anúncio é removido com sucesso quando o ID é válido.")
     void deleteAdsense() {
         Adsense adsense = AdsenseUtils.adsenseWithId();
 
