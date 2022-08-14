@@ -15,12 +15,14 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
+import org.springframework.dao.EmptyResultDataAccessException;
 
 import java.util.Collections;
 import java.util.List;
@@ -211,5 +213,19 @@ public class AdsenseServiceTest {
 
     @Test
     void deleteAdsenseById() {
+        Long adsenseId = AdsenseUtils.adsenseWithId().getId();
+
+        BDDMockito.when(adsenseRepository.findById(adsenseId))
+            .thenReturn(Optional.of(AdsenseUtils.adsenseWithId()));
+
+        BDDMockito.doNothing()
+            .when(adsenseRepository).deleteById(anyLong());
+
+        assertThatCode(() -> {
+           adsenseService.deleteAdsenseById(adsenseId);
+        }).doesNotThrowAnyException();
+
+        verify(adsenseRepository, atLeastOnce()).deleteById(anyLong());
     }
+
 }
