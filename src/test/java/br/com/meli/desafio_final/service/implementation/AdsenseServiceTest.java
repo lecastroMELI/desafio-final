@@ -3,6 +3,7 @@ package br.com.meli.desafio_final.service.implementation;
 import br.com.meli.desafio_final.dto.AdsenseByWarehouseDto;
 import br.com.meli.desafio_final.dto.AdsenseIdDto;
 import br.com.meli.desafio_final.dto.AdsenseInsertDto;
+import br.com.meli.desafio_final.dto.AdsenseUpdateDto;
 import br.com.meli.desafio_final.exception.BadRequest;
 import br.com.meli.desafio_final.exception.NotFound;
 import br.com.meli.desafio_final.model.entity.Adsense;
@@ -148,7 +149,7 @@ public class AdsenseServiceTest {
 
 
     @Test
-    @DisplayName("Criar anúncio: Retorna os dados do anúncio criado quando a inserção é com sucesso.")
+    @DisplayName("CREATE: Retorna os dados do anúncio criado quando a inserção é com sucesso.")
     void insertAdsense_returnAdsense_whenInsertedWithSuccess() {
         Adsense newAdsense = AdsenseInsertDtoUtils.newAdsenseInsertToSave();
 
@@ -169,7 +170,7 @@ public class AdsenseServiceTest {
     }
 
     @Test
-    @DisplayName("Criar anúncio: Valida se retorna a exceção BAD REQUEST quando tenta inserir um anúncio com ID.")
+    @DisplayName("CREATE: Valida se retorna a exceção BAD REQUEST quando tenta inserir um anúncio com ID.")
     void insertAdsense_returnThrow_whenInsertedAdsWithId() {
         Adsense adsenseWithId = AdsenseUtils.adsenseWithId();
 
@@ -177,7 +178,22 @@ public class AdsenseServiceTest {
     }
 
     @Test
+    @DisplayName("UPDATE: Valida se retorna os dados do anúncio atualizado, quando o update é realizado com sucesso.")
     void updateAdsenseById() {
+        Adsense adsense = AdsenseUtils.adsenseWithId();
+        Long adsenseId = AdsenseUtils.adsenseWithId().getId();
+        Long sellerId = SellerUtils.newSeller3ToSave().getId();
+
+        BDDMockito.when(adsenseRepository.findById(adsenseId))
+            .thenReturn(Optional.of(AdsenseUtils.adsenseWithId()));
+
+        BDDMockito.when(productService.findById(anyLong()))
+            .thenReturn(ProductUtils.newProduct5ToSave());
+
+        AdsenseUpdateDto adsenseUpdatedDto = adsenseService.updateAdsenseById(adsense, adsenseId, sellerId);
+
+        assertThat(adsenseUpdatedDto).isNotNull();
+        assertThat(adsenseUpdatedDto.getPrice()).isPositive().isEqualTo(adsense.getPrice());
     }
 
     @Test
