@@ -2,10 +2,13 @@ package br.com.meli.desafio_final.controller;
 
 import br.com.meli.desafio_final.dto.AdsenseByWarehouseDto;
 import br.com.meli.desafio_final.dto.AdsenseDto;
+import br.com.meli.desafio_final.dto.AdsenseInsertDto;
 import br.com.meli.desafio_final.exception.NotFound;
+import br.com.meli.desafio_final.model.entity.Adsense;
 import br.com.meli.desafio_final.model.enums.Category;
 import br.com.meli.desafio_final.service.implementation.AdsenseService;
 import br.com.meli.desafio_final.util.AdsenseByWarehouseDtoUtils;
+import br.com.meli.desafio_final.util.AdsenseInsertDtoUtils;
 import br.com.meli.desafio_final.util.AdsenseUtils;
 import br.com.meli.desafio_final.util.AdsenseUtilsDto;
 import org.assertj.core.api.Assertions;
@@ -25,6 +28,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
@@ -111,5 +115,30 @@ public class AdsenseControllerTest {
         assertThat(response.getBody().size()).isNotNull().isPositive().isEqualTo(4);
     }
 
+    @Test
+    void createAdsense() {
+        Adsense newAdsense = AdsenseUtils.newAdsense3ToSave();
+
+        BDDMockito.when(service.insertAdsense(newAdsense))
+            .thenReturn(AdsenseInsertDtoUtils.adsenseWithId());
+
+        ResponseEntity<AdsenseInsertDto> response = controller.createAdsense(newAdsense);
+
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.CREATED);
+        assertThat(response.getBody()).isNotNull();
+        assertThat(response.getBody().getAdsenseId()).isEqualTo(AdsenseInsertDtoUtils.adsenseWithId().getAdsenseId());
+    }
+
+    @Test
+    void readAdsenseById() {
+    }
+
+    @Test
+    void updateAdsense() {
+    }
+
+    @Test
+    void deleteAdsense() {
+    }
 }
 
