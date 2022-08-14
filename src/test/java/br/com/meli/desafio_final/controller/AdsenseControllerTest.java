@@ -3,14 +3,12 @@ package br.com.meli.desafio_final.controller;
 import br.com.meli.desafio_final.dto.AdsenseByWarehouseDto;
 import br.com.meli.desafio_final.dto.AdsenseDto;
 import br.com.meli.desafio_final.dto.AdsenseInsertDto;
+import br.com.meli.desafio_final.dto.AdsenseUpdateDto;
 import br.com.meli.desafio_final.exception.NotFound;
 import br.com.meli.desafio_final.model.entity.Adsense;
 import br.com.meli.desafio_final.model.enums.Category;
 import br.com.meli.desafio_final.service.implementation.AdsenseService;
-import br.com.meli.desafio_final.util.AdsenseByWarehouseDtoUtils;
-import br.com.meli.desafio_final.util.AdsenseInsertDtoUtils;
-import br.com.meli.desafio_final.util.AdsenseUtils;
-import br.com.meli.desafio_final.util.AdsenseUtilsDto;
+import br.com.meli.desafio_final.util.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -143,10 +141,22 @@ public class AdsenseControllerTest {
 
     @Test
     void updateAdsense() {
+        Adsense adsense = AdsenseUtils.adsenseWithId();
+        Long adsenseId = AdsenseUtils.adsenseWithId().getId();
+        Long sellerId = SellerUtils.newSeller3ToSave().getId();
+
+        BDDMockito.when(service.updateAdsenseById(adsense, adsenseId, sellerId))
+            .thenReturn(AdsenseUpdateDtoUtils.adsenseUpdated());
+
+        ResponseEntity<AdsenseUpdateDto> response = controller.updateAdsense(adsense, adsenseId, sellerId);
+
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).isExactlyInstanceOf(AdsenseUpdateDto.class);
     }
 
     @Test
     void deleteAdsense() {
+
     }
 }
 
