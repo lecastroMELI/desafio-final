@@ -34,6 +34,14 @@ public class AdsenseUtils {
                 .build();
     }
 
+    public static Adsense adsenseInserted() {
+        return Adsense.builder()
+            .id(4L)
+            .price(19.19)
+            .seller(SellerUtils.newSeller3ToSave())
+            .product(ProductUtils.newProduct5ToSave())
+            .build();
+    }
     public static List<Adsense> generateAdsenseList() {
         List<Adsense> adsenseList = new ArrayList<>();
         adsenseList.add(newAdsense1ToSave());

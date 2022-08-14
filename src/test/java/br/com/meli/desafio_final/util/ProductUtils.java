@@ -45,6 +45,15 @@ public class ProductUtils {
                 .build();
     }
 
+    public static Product newProduct5ToSave() {
+        return Product.builder()
+            .id(5L)
+            .name("Manteiga de Themysira")
+            .volumen(19.19)
+            .category(Category.REFRIGERATED)
+            .build();
+    }
+
     public static List<Product> productList() {
         List<Product> productList = new ArrayList<>();
         productList.add(newProduct1ToSave());

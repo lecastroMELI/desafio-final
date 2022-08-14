@@ -18,4 +18,11 @@ public class SellerUtils {
                 .build();
     }
 
+    public static Seller newSeller3ToSave() {
+        return Seller.builder()
+            .id(3L)
+            .name("Mulher Maravilha")
+            .build();
+    }
+
 }

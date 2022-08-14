@@ -2,16 +2,20 @@ package br.com.meli.desafio_final.service.implementation;
 
 import br.com.meli.desafio_final.dto.AdsenseByWarehouseDto;
 import br.com.meli.desafio_final.dto.AdsenseIdDto;
+import br.com.meli.desafio_final.dto.AdsenseInsertDto;
 import br.com.meli.desafio_final.exception.NotFound;
 import br.com.meli.desafio_final.model.entity.Adsense;
+import br.com.meli.desafio_final.model.entity.Product;
+import br.com.meli.desafio_final.model.entity.Seller;
 import br.com.meli.desafio_final.model.enums.Category;
 import br.com.meli.desafio_final.repository.AdsenseRepository;
-import br.com.meli.desafio_final.util.AdsenseByWarehouseDtoUtils;
-import br.com.meli.desafio_final.util.AdsenseUtils;
+import br.com.meli.desafio_final.repository.SellerRepository;
+import br.com.meli.desafio_final.util.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -42,6 +46,12 @@ public class AdsenseServiceTest {
 
     @Mock
     private BatchService batchService;
+
+    @Mock
+    private SellerRepository sellerRepository;
+
+    @Mock
+    private ProductService productService;
 
     // TODO: REMOVER A PALAVRA "TEST" DOS NOMES DOS MÉTODOS, POIS A MAIORIA NÃO POSSUI
     // TODO: ADICIONAR @DisplayName() AOS TESTES QUE NÃO O POSSUI
@@ -137,5 +147,35 @@ public class AdsenseServiceTest {
 
         Assertions.assertThat(adsenseList).isNotNull();
         Assertions.assertThat(adsenseList.size()).isEqualTo(4);
+    }
+
+
+    @Test
+    @DisplayName("Criar anúncio: Retorna os dados do anúncio criado quando a inserção é com sucesso.")
+    void insertAdsense_returnAdsense_whenInsertedWithSuccess() {
+        Adsense newAdsense = AdsenseInsertDtoUtils.newAdsenseInsertToSave();
+
+        BDDMockito.when(repository.save(newAdsense))
+            .thenReturn(AdsenseUtils.adsenseInserted());
+
+        BDDMockito.when(productService.findById(ArgumentMatchers.anyLong()))
+            .thenReturn(ProductUtils.newProduct5ToSave());
+
+        BDDMockito.when(sellerRepository.findById(ArgumentMatchers.anyLong()))
+            .thenReturn(Optional.of(SellerUtils.newSeller3ToSave()));
+
+        AdsenseInsertDto adsenseInsertDto = service.insertAdsense(newAdsense);
+
+        assertThat(adsenseInsertDto).isNotNull();
+        assertThat(adsenseInsertDto.getSeller().getName()).isEqualTo("Mulher Maravilha");
+        assertThat(adsenseInsertDto.getProduct().getName()).isEqualTo("Manteiga de Themysira");
+    }
+
+    @Test
+    void updateAdsenseById() {
+    }
+
+    @Test
+    void deleteAdsenseById() {
     }
 }
