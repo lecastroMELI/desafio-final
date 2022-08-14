@@ -26,7 +26,7 @@ public class AdsenseController {
     // TODO: colocar DTO
     @GetMapping
     public ResponseEntity<List<AdsenseDto>> findAll() {
-        return ResponseEntity.ok(AdsenseDto.convertDto(adsenseService.findAll()));
+        return ResponseEntity.ok(AdsenseDto.convertListDto(adsenseService.findAll()));
     }
 
     /**
@@ -37,7 +37,7 @@ public class AdsenseController {
     // TODO: colocar DTO
     @GetMapping("/list")
     public ResponseEntity<List<AdsenseDto>> findByCategory(@RequestParam Category querytype) {
-        return ResponseEntity.ok(AdsenseDto.convertDto(adsenseService.findByCategory(querytype)));
+        return ResponseEntity.ok(AdsenseDto.convertListDto(adsenseService.findByCategory(querytype)));
     }
 
     /**
@@ -56,6 +56,11 @@ public class AdsenseController {
         return ResponseEntity.status(HttpStatus.CREATED).body(adsenseService.insertAdsense(newAdsense));
     }
 
+    @GetMapping("/{adsenseId}")
+    public ResponseEntity<AdsenseDto> readAdsenseById(@PathVariable Long adsenseId) {
+        return ResponseEntity.status(HttpStatus.OK).body(AdsenseDto.convertDto(adsenseService.findById(adsenseId)));
+    }
+
     @PutMapping("/{adsenseId}")
     public ResponseEntity<AdsenseUpdateDto> updateAdsense(
         @RequestBody Adsense adsense,
@@ -70,4 +75,6 @@ public class AdsenseController {
         adsenseService.deleteAdsenseById(adsenseId);
         return ResponseEntity.status(HttpStatus.NO_CONTENT);
     }
+
 }
+
