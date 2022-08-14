@@ -20,6 +20,7 @@ import br.com.meli.desafio_final.dto.AdsenseIdDto;
 
 import javax.validation.constraints.Null;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -142,12 +143,10 @@ public class AdsenseService implements IAdsenseService {
 
     @Override
     public void deleteAdsenseById(Long id) {
-        Adsense adsenseFound = findById(id);
-        if (adsenseFound == null) {
-            throw new NotFound("Anúncio não encontrado.");
+        Adsense adsense = findById(id);
+        if (Objects.nonNull(adsense)) {
+            adsenseRepository.deleteById(id);
         }
-
-        adsenseRepository.deleteById(id);
     }
 }
 
