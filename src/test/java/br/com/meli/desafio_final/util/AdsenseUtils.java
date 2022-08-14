@@ -34,7 +34,7 @@ public class AdsenseUtils {
                 .build();
     }
 
-    public static Adsense adsenseInserted() {
+    public static Adsense adsenseWithId() {
         return Adsense.builder()
             .id(4L)
             .price(19.19)

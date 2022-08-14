@@ -13,7 +13,7 @@ public class AdsenseInsertDtoUtils {
             .build();
     }
 
-    public static AdsenseInsertDto newAdsenseInsertDtoToSave() {
+    public static AdsenseInsertDto adsenseWithId() {
         return AdsenseInsertDto.builder()
             .adsenseId(1L)
             .price(19.19)

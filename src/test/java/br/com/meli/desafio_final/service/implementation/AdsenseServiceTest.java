@@ -3,10 +3,9 @@ package br.com.meli.desafio_final.service.implementation;
 import br.com.meli.desafio_final.dto.AdsenseByWarehouseDto;
 import br.com.meli.desafio_final.dto.AdsenseIdDto;
 import br.com.meli.desafio_final.dto.AdsenseInsertDto;
+import br.com.meli.desafio_final.exception.BadRequest;
 import br.com.meli.desafio_final.exception.NotFound;
 import br.com.meli.desafio_final.model.entity.Adsense;
-import br.com.meli.desafio_final.model.entity.Product;
-import br.com.meli.desafio_final.model.entity.Seller;
 import br.com.meli.desafio_final.model.enums.Category;
 import br.com.meli.desafio_final.repository.AdsenseRepository;
 import br.com.meli.desafio_final.repository.SellerRepository;
@@ -156,7 +155,7 @@ public class AdsenseServiceTest {
         Adsense newAdsense = AdsenseInsertDtoUtils.newAdsenseInsertToSave();
 
         BDDMockito.when(repository.save(newAdsense))
-            .thenReturn(AdsenseUtils.adsenseInserted());
+            .thenReturn(AdsenseUtils.adsenseWithId());
 
         BDDMockito.when(productService.findById(ArgumentMatchers.anyLong()))
             .thenReturn(ProductUtils.newProduct5ToSave());
@@ -169,6 +168,14 @@ public class AdsenseServiceTest {
         assertThat(adsenseInsertDto).isNotNull();
         assertThat(adsenseInsertDto.getSeller().getName()).isEqualTo("Mulher Maravilha");
         assertThat(adsenseInsertDto.getProduct().getName()).isEqualTo("Manteiga de Themysira");
+    }
+
+    @Test
+    @DisplayName("Criar anúncio: Valida se retorna a exceção BAD REQUEST quando tenta inserir um anúncio com ID.")
+    void insertAdsense_returnThrow_whenInsertedAdsWithId() {
+        Adsense adsenseWithId = AdsenseUtils.adsenseWithId();
+
+        assertThrows(BadRequest.class, () -> service.insertAdsense(adsenseWithId));
     }
 
     @Test
