@@ -179,7 +179,7 @@ public class AdsenseServiceTest {
 
     @Test
     @DisplayName("UPDATE: Valida se retorna os dados do anúncio atualizado, quando o update é realizado com sucesso.")
-    void updateAdsenseById() {
+    void updateAdsenseById_success() {
         Adsense adsense = AdsenseUtils.adsenseWithId();
         Long adsenseId = AdsenseUtils.adsenseWithId().getId();
         Long sellerId = SellerUtils.newSeller3ToSave().getId();
@@ -194,6 +194,19 @@ public class AdsenseServiceTest {
 
         assertThat(adsenseUpdatedDto).isNotNull();
         assertThat(adsenseUpdatedDto.getPrice()).isPositive().isEqualTo(adsense.getPrice());
+    }
+
+    @Test
+    @DisplayName("UPDATE: Valida se retorna a exception BAD REQUEST, quando o vendedor não é o proprietário do anúncio.")
+    void updateAdsenseById_error() {
+        Adsense adsense = AdsenseUtils.adsenseWithId();
+        Long adsenseId = AdsenseUtils.adsenseWithId().getId();
+        Long sellerId = SellerUtils.newSeller2ToSave().getId();
+
+        BDDMockito.when(adsenseRepository.findById(adsenseId))
+            .thenReturn(Optional.of(AdsenseUtils.adsenseWithId()));
+
+        assertThrows(BadRequest.class, () -> adsenseService.updateAdsenseById(adsense, adsenseId, sellerId));
     }
 
     @Test
