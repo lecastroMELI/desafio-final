@@ -71,9 +71,9 @@ public class AdsenseController {
     }
 
     @DeleteMapping("/{adsenseId}")
-    public ResponseEntity.BodyBuilder deleteAdsense(@PathVariable Long adsenseId) {
-        adsenseService.deleteAdsenseById(adsenseId);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT);
+    public ResponseEntity<Void> deleteAdsense(@PathVariable Long adsenseId) {
+        this.adsenseService.deleteAdsenseById(adsenseId);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
 }
