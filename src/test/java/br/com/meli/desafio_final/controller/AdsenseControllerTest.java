@@ -26,9 +26,9 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.as;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -156,7 +156,16 @@ public class AdsenseControllerTest {
 
     @Test
     void deleteAdsense() {
+        Adsense adsense = AdsenseUtils.adsenseWithId();
 
+        BDDMockito.doNothing()
+            .when(service).deleteAdsenseById(anyLong());
+
+        assertThatCode(() -> {
+            controller.deleteAdsense(adsense.getId());
+        }).doesNotThrowAnyException();
+
+        verify(service, atLeastOnce()).deleteAdsenseById(anyLong());
     }
 }
 
