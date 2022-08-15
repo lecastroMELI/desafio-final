@@ -11,18 +11,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v2/fresh-products")
+@RequestMapping("/product")
 public class ProductController {
-
 
     @Autowired
     private ProductService service;
 
     /**
      * Nesse método retornamos uma lista com todos os produtos
-     * @return
      */
-
     @GetMapping
     public ResponseEntity<List<Product>> getAll() {
         return ResponseEntity.ok(service.findAllProducts());
@@ -31,22 +28,20 @@ public class ProductController {
     /**
      * Nesse método retornamos uma lista de produtos por categoria
      * @param querytype
-     * @return
      */
-
     @GetMapping("/list")
     public ResponseEntity<List<Product>> getByCategory(@RequestParam Category querytype) {
         return ResponseEntity.ok(service.findByCategory(querytype));
     }
 
     /**
-     * Nesse método retornamos produto por lote (batch product )
+     * Nesse método retornamos produto por lote (batch product)
      * @param productId
-     * @param s
-     * @return
+     * @param s Parâmetro de ordenação
      */
     @GetMapping("/sortlist")
     public ResponseEntity<BatchesByProductDto> findBatchByProduct(@RequestParam Long productId, String s) {
         return ResponseEntity.ok(service.findBatchByProduct(productId, s));
     }
+
 }

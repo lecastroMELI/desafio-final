@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v2/fresh-products")
+@RequestMapping("purchase_order")
 public class PurchaseOrderController {
 
     @Autowired
@@ -21,33 +21,31 @@ public class PurchaseOrderController {
     /**
      * Nesse método salvamos a ordem de pedido e retornamos o status de criado (CREATED)
      * @param purchaseOrder
-     * @return
      */
-    @PostMapping("/orders")
+    @PostMapping("/save_order")
     public ResponseEntity<Double> save(@RequestBody PurchaseOrder purchaseOrder) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(purchaseOrderService.save(purchaseOrder));
+        return ResponseEntity.status(HttpStatus.CREATED)
+            .body(purchaseOrderService.save(purchaseOrder));
     }
 
     /**
      * Nesse método retornamos produto anunciando
      * @param purchaseOrderId
-     * @return
      */
 
-    @GetMapping("/orders/{purchaseOrderId}")
+    @GetMapping("/{purchaseOrderId}")
     public ResponseEntity<List<AdsenseDto>> findAdsensesByPurchaseOrderId(@PathVariable Long purchaseOrderId) {
-        return ResponseEntity.status(HttpStatus.OK).body(purchaseOrderService.findAdsensesByPurchaseOrderId(purchaseOrderId));
+        return ResponseEntity.status(HttpStatus.OK)
+            .body(purchaseOrderService.findAdsensesByPurchaseOrderId(purchaseOrderId));
     }
 
     /**
      * Nesse método atualizamos o status de compra
      * @param purchaseOrderId
-     * @return
      */
-    //TODO: fazer DTO
-    @PutMapping("/orders/")
+    @PutMapping("/update_order")
     public ResponseEntity<PurchaseOrderDto> update(@RequestParam Long purchaseOrderId) {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(new PurchaseOrderDto(purchaseOrderService.updateToFinished(purchaseOrderId)));
+            .body(new PurchaseOrderDto(purchaseOrderService.updateToFinished(purchaseOrderId)));
     }
 }
