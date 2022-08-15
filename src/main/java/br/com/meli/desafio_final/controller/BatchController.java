@@ -35,8 +35,10 @@ public class BatchController {
      * @param numberOfDays
      */
     @GetMapping("/due-date")
-    public ResponseEntity<List<AdsenseBySectionAndDueDateDto>> findAdsenseBySectionAndDueDate(@RequestParam long sectionId, @RequestParam int numberOfDays) {
-        return ResponseEntity.status(HttpStatus.OK).body(service.findAdsenseBySectionAndDueDate(sectionId, numberOfDays));
+    public ResponseEntity<List<AdsenseBySectionAndDueDateDto>> findAdsenseBySectionAndDueDate(
+        @RequestParam long sectionId, @RequestParam int numberOfDays) {
+        return ResponseEntity.status(HttpStatus.OK)
+            .body(service.findAdsenseBySectionAndDueDate(sectionId, numberOfDays));
     }
 
     /**
@@ -49,8 +51,10 @@ public class BatchController {
      * @param order
      */
     @GetMapping("/due-date/list")
-    public ResponseEntity<List<AdsensByDueDateAndCategoryDto>> findAdsenseByDueDateAndCategory(@RequestParam int numberOfDays, @RequestParam String category, @RequestParam String order) {
-        return ResponseEntity.status(HttpStatus.OK).body(service.findAdsenseByDueDateAndCategory(numberOfDays, category, order));
+    public ResponseEntity<List<AdsensByDueDateAndCategoryDto>> findAdsenseByDueDateAndCategory(
+        @RequestParam int numberOfDays, @RequestParam String category, @RequestParam String order) {
+        return ResponseEntity.status(HttpStatus.OK)
+            .body(service.findAdsenseByDueDateAndCategory(numberOfDays, category, order));
     }
 
 }
