@@ -3,7 +3,6 @@ package br.com.meli.desafio_final.controller;
 import br.com.meli.desafio_final.dto.AdsensByDueDateAndCategoryDto;
 import br.com.meli.desafio_final.dto.AdsenseBySectionAndDueDateDto;
 import br.com.meli.desafio_final.dto.BatchDto;
-import br.com.meli.desafio_final.repository.BatchRepository;
 import br.com.meli.desafio_final.service.implementation.BatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/batch")
 public class BatchController {
+
     @Autowired
     BatchService service;
 
