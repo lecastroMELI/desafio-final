@@ -1,0 +1,66 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IAdsenseService</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">br.com.meli.desafio_final.service</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IAdsenseService (br.com.meli.desafio_final.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">IAdsenseService</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package br.com.meli.desafio_final.service;
+<i>2</i>&nbsp;import br.com.meli.desafio_final.dto.*;
+<i>3</i>&nbsp;import br.com.meli.desafio_final.model.entity.Adsense;
+<i>4</i>&nbsp;import br.com.meli.desafio_final.model.enums.Category;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import java.util.List;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;public interface IAdsenseService {
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;    Adsense findById(long id);
+<i>11</i>&nbsp;    List&lt;Adsense&gt; findAll();
+<i>12</i>&nbsp;    List&lt;Adsense&gt; findByCategory(Category category);
+<i>13</i>&nbsp;    List&lt;AdsenseByWarehouseDto&gt; findAdsenseByWarehouseAndQuantity(Long adsenseId);
+<i>14</i>&nbsp;    List&lt;AdsenseIdDto&gt; findByProductId(Long productId);
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    AdsenseInsertDto insertAdsense(Adsense newAdsense);
+<i>17</i>&nbsp;    AdsenseUpdateDto updateAdsenseById(Adsense adsense, Long adsenseId, Long sellerId);
+<i>18</i>&nbsp;    void deleteAdsenseById(Long id);
+<i>19</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-08-15 15:55</div>
+</div>
+</body>
+</html>

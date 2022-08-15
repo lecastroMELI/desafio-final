@@ -1,0 +1,171 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: BatchRepository</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">br.com.meli.desafio_final.repository</a> ]
+</div>
+
+<h1>Coverage Summary for Class: BatchRepository (br.com.meli.desafio_final.repository)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+</tr>
+  <tr>
+    <td class="name">BatchRepository$MockitoMock$1352022083</td>
+  </tr>
+  <tr>
+    <td class="name">BatchRepository$MockitoMock$1352022083$auxiliary$BpjFBBlK</td>
+  </tr>
+  <tr>
+    <td class="name">BatchRepository$MockitoMock$1352022083$auxiliary$ZvCJk9Z4</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package br.com.meli.desafio_final.repository;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import br.com.meli.desafio_final.model.entity.Batch;
+<i>4</i>&nbsp;import org.springframework.data.jpa.repository.JpaRepository;
+<i>5</i>&nbsp;import org.springframework.data.jpa.repository.Query;
+<i>6</i>&nbsp;import org.springframework.stereotype.Repository;
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;import java.time.LocalDate;
+<i>9</i>&nbsp;import java.util.List;
+<i>10</i>&nbsp;import java.util.Optional;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;@Repository
+<i>13</i>&nbsp;public interface BatchRepository extends JpaRepository&lt;Batch, Long&gt; {
+<i>14</i>&nbsp;
+<i>15</i>&nbsp;    List&lt;Batch&gt; findAllByAdsenseId(Long adsenseId);
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    List&lt;Batch&gt; findBatchesByAdsenseId(Long id);
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    Optional&lt;Batch&gt; findBatchByBatchNumberAndInBoundOrderId(Long batchNumber, Long inboundOrder);
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    Optional&lt;Batch&gt; findBatchByBatchNumberAndAdsenseId(Long batchNumber, Long adsenseId);
+<i>22</i>&nbsp;
+<i>23</i>&nbsp;    /**
+<i>24</i>&nbsp;     * Essa query recebe como parâmetro do adsense_id e retorna uma lista com a quantidade total de
+<i>25</i>&nbsp;     * produtos (adsense) por armazém.
+<i>26</i>&nbsp;     * @param id (adsense_id)
+<i>27</i>&nbsp;     */
+<i>28</i>&nbsp;    @Query(value = &quot;SELECT \n&quot; +
+<i>29</i>&nbsp;            &quot;    SUM(frescos.batch.current_quantity) AS quantity,\n&quot; +
+<i>30</i>&nbsp;            &quot;    frescos.section.warehouse_id AS warehouse_id\n&quot; +
+<i>31</i>&nbsp;            &quot;FROM frescos.batch AS batch \n&quot; +
+<i>32</i>&nbsp;            &quot;JOIN frescos.in_bound_order AS inbound\n&quot; +
+<i>33</i>&nbsp;            &quot;JOIN frescos.section AS section\n&quot; +
+<i>34</i>&nbsp;            &quot;WHERE frescos.batch.adsense_id = ?1\n&quot; +
+<i>35</i>&nbsp;            &quot;AND batch.in_bound_order_id = inbound.id \n&quot; +
+<i>36</i>&nbsp;            &quot;AND inbound.section_id = section.id\n&quot; +
+<i>37</i>&nbsp;            &quot;GROUP BY warehouse_id, adsense_id;&quot;, nativeQuery = true)
+<i>38</i>&nbsp;    List&lt;Object[]&gt; getAdsenseByWarehouse(long id);
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    /**
+<i>41</i>&nbsp;     * Essa query retorna uma lista de todos os lotes armazenados em um setor de um armazém,
+<i>42</i>&nbsp;     * filtrados por um período de vencimento
+<i>43</i>&nbsp;     * e ordenados por sua data de validade
+<i>44</i>&nbsp;     *
+<i>45</i>&nbsp;     * @param id (section_id)
+<i>46</i>&nbsp;     * @param initialDate
+<i>47</i>&nbsp;     * @param finalDate
+<i>48</i>&nbsp;     */
+<i>49</i>&nbsp;    @Query(value = &quot;SELECT\n&quot; +
+<i>50</i>&nbsp;            &quot; batch_number, adsense_id, current_quantity, due_date\n&quot; +
+<i>51</i>&nbsp;            &quot; FROM batch\n&quot; +
+<i>52</i>&nbsp;            &quot; JOIN frescos.in_bound_order\n&quot; +
+<i>53</i>&nbsp;            &quot; WHERE frescos.in_bound_order.id = frescos.batch.in_bound_order_id\n&quot; +
+<i>54</i>&nbsp;            &quot; AND frescos.in_bound_order.section_id = ?1\n&quot; +
+<i>55</i>&nbsp;            &quot; AND due_date BETWEEN ?2 AND ?3&quot; +
+<i>56</i>&nbsp;            &quot; ORDER BY due_date&quot;, nativeQuery = true)
+<i>57</i>&nbsp;    List&lt;Object[]&gt; getAdsenseBySectionAndDate(long id, LocalDate initialDate, LocalDate finalDate);
+<i>58</i>&nbsp;
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;    /**
+<i>61</i>&nbsp;     * Essa query retorna uma lista de lote dentro do prazo de validade solicitado,
+<i>62</i>&nbsp;     * que pertencem a uma determinada categoria de produto
+<i>63</i>&nbsp;     * ordenada de forma crescente pela quantidade
+<i>64</i>&nbsp;     *
+<i>65</i>&nbsp;     * @param initialDate
+<i>66</i>&nbsp;     * @param finalDate
+<i>67</i>&nbsp;     * @param category
+<i>68</i>&nbsp;     */
+<i>69</i>&nbsp;    @Query(value = &quot;SELECT\n&quot; +
+<i>70</i>&nbsp;            &quot; batch_number, \n&quot; +
+<i>71</i>&nbsp;            &quot; adsense_id, \n&quot; +
+<i>72</i>&nbsp;            &quot; current_quantity, \n&quot; +
+<i>73</i>&nbsp;            &quot; due_date,\n&quot; +
+<i>74</i>&nbsp;            &quot; frescos.product.category AS productType,\n&quot; +
+<i>75</i>&nbsp;            &quot; frescos.in_bound_order.section_id AS section_id\n&quot; +
+<i>76</i>&nbsp;            &quot; FROM batch\n&quot; +
+<i>77</i>&nbsp;            &quot; JOIN frescos.in_bound_order\n&quot; +
+<i>78</i>&nbsp;            &quot; JOIN frescos.adsense as adsense\n&quot; +
+<i>79</i>&nbsp;            &quot; JOIN frescos.product as product\n&quot; +
+<i>80</i>&nbsp;            &quot; WHERE frescos.in_bound_order.id = frescos.batch.in_bound_order_id\n&quot; +
+<i>81</i>&nbsp;            &quot; AND due_date BETWEEN ?1 AND ?2\n&quot; +
+<i>82</i>&nbsp;            &quot; AND batch.adsense_id = adsense.id\n&quot; +
+<i>83</i>&nbsp;            &quot; AND product.id = adsense.product_id\n&quot; +
+<i>84</i>&nbsp;            &quot; AND product.category = ?3\n&quot; +
+<i>85</i>&nbsp;            &quot; ORDER BY current_quantity ASC&quot;, nativeQuery = true)
+<i>86</i>&nbsp;    List&lt;Object[]&gt; getAdsenseByDueDateAndCategoryAsc(LocalDate initialDate, LocalDate finalDate, String category);
+<i>87</i>&nbsp;
+<i>88</i>&nbsp;    /**
+<i>89</i>&nbsp;     * Essa query retorna uma lista de lote dentro do prazo de validade solicitado,
+<i>90</i>&nbsp;     * que pertencem a uma determinada categoria de produto
+<i>91</i>&nbsp;     * ordenada de forma decrescente pela quantidade
+<i>92</i>&nbsp;     *
+<i>93</i>&nbsp;     * @param initialDate
+<i>94</i>&nbsp;     * @param finalDate
+<i>95</i>&nbsp;     * @param category
+<i>96</i>&nbsp;     */
+<i>97</i>&nbsp;    @Query(value = &quot;SELECT\n&quot; +
+<i>98</i>&nbsp;            &quot; batch_number, \n&quot; +
+<i>99</i>&nbsp;            &quot; adsense_id, \n&quot; +
+<i>100</i>&nbsp;            &quot; current_quantity, \n&quot; +
+<i>101</i>&nbsp;            &quot; due_date,\n&quot; +
+<i>102</i>&nbsp;            &quot; frescos.product.category AS productType,\n&quot; +
+<i>103</i>&nbsp;            &quot; frescos.in_bound_order.section_id AS section_id\n&quot; +
+<i>104</i>&nbsp;            &quot; FROM batch\n&quot; +
+<i>105</i>&nbsp;            &quot; JOIN frescos.in_bound_order\n&quot; +
+<i>106</i>&nbsp;            &quot; JOIN frescos.adsense as adsense\n&quot; +
+<i>107</i>&nbsp;            &quot; JOIN frescos.product as product\n&quot; +
+<i>108</i>&nbsp;            &quot; WHERE frescos.in_bound_order.id = frescos.batch.in_bound_order_id\n&quot; +
+<i>109</i>&nbsp;            &quot; AND due_date BETWEEN ?1 AND ?2\n&quot; +
+<i>110</i>&nbsp;            &quot; AND batch.adsense_id = adsense.id\n&quot; +
+<i>111</i>&nbsp;            &quot; AND product.id = adsense.product_id\n&quot; +
+<i>112</i>&nbsp;            &quot; AND product.category = ?3\n&quot; +
+<i>113</i>&nbsp;            &quot; ORDER BY current_quantity DESC&quot;, nativeQuery = true)
+<i>114</i>&nbsp;    List&lt;Object[]&gt; getAdsenseByDueDateAndCategoryDesc(LocalDate initialDate, LocalDate finalDate, String category);
+<i>115</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-08-15 15:55</div>
+</div>
+</body>
+</html>

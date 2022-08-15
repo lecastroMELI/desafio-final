@@ -1,0 +1,160 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SectionService</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">br.com.meli.desafio_final.service.implementation</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SectionService (br.com.meli.desafio_final.service.implementation)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">SectionService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (10/ 10)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">SectionService$MockitoMock$1455919317</td>
+  </tr>
+  <tr>
+    <td class="name">SectionService$MockitoMock$1455919317$auxiliary$aLMIWFed</td>
+  </tr>
+  <tr>
+    <td class="name">SectionService$MockitoMock$1455919317$auxiliary$dQDQOV5c</td>
+  </tr>
+  <tr>
+    <td class="name">SectionService$MockitoMock$1455919317$auxiliary$fh1WFNAS</td>
+  </tr>
+  <tr>
+    <td class="name">SectionService$MockitoMock$1455919317$auxiliary$iYCBzxZz</td>
+  </tr>
+  <tr>
+    <td class="name">SectionService$MockitoMock$1455919317$auxiliary$mTueSkrA</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (10/ 10)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package br.com.meli.desafio_final.service.implementation;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import br.com.meli.desafio_final.exception.NotAcceptable;
+<i>4</i>&nbsp;import br.com.meli.desafio_final.exception.NotFound;
+<i>5</i>&nbsp;import br.com.meli.desafio_final.model.entity.Section;
+<i>6</i>&nbsp;import br.com.meli.desafio_final.model.enums.Category;
+<i>7</i>&nbsp;import br.com.meli.desafio_final.repository.SectionRepository;
+<i>8</i>&nbsp;import br.com.meli.desafio_final.service.ISectionService;
+<i>9</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>10</i>&nbsp;import org.springframework.stereotype.Service;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;import java.util.List;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;@Service
+<b class="fc"><i>15</i>&nbsp;public class SectionService implements ISectionService {</b>
+<i>16</i>&nbsp;
+<i>17</i>&nbsp;    @Autowired
+<i>18</i>&nbsp;    SectionRepository sectionRepository;
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    @Override
+<i>21</i>&nbsp;    public Section update(Section section) {
+<b class="fc"><i>22</i>&nbsp;        return sectionRepository.save(section);</b>
+<i>23</i>&nbsp;    }
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    /**
+<i>26</i>&nbsp;     * Nesse método estamos validando capacidade de um setor
+<i>27</i>&nbsp;     * @param batchVolumen
+<i>28</i>&nbsp;     * @param section
+<i>29</i>&nbsp;     */
+<i>30</i>&nbsp;    public void setAndUpdateCapacity(double batchVolumen, Section section){
+<b class="fc"><i>31</i>&nbsp;        if (section.getUsedCapacity() &gt;= batchVolumen){</b>
+<b class="fc"><i>32</i>&nbsp;            section.setUsedCapacity(section.getUsedCapacity() - batchVolumen);</b>
+<b class="fc"><i>33</i>&nbsp;            sectionRepository.save(section);</b>
+<i>34</i>&nbsp;        }else{
+<b class="fc"><i>35</i>&nbsp;            throw new NotAcceptable(&quot;Setor sem espaço para armazer o lote&quot;);</b>
+<i>36</i>&nbsp;        }
+<b class="fc"><i>37</i>&nbsp;    }</b>
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    /**
+<i>40</i>&nbsp;     * Nesse metodo estamos retornando uma lista setor por categoria
+<i>41</i>&nbsp;     * @param category
+<i>42</i>&nbsp;     * @return
+<i>43</i>&nbsp;     */
+<i>44</i>&nbsp;    @Override
+<i>45</i>&nbsp;    public List&lt;Section&gt; findByCategory(Category category) {
+<i>46</i>&nbsp;        try {
+<b class="fc"><i>47</i>&nbsp;            return sectionRepository.findByCategory(category);</b>
+<b class="fc"><i>48</i>&nbsp;        }catch (Exception e){</b>
+<b class="fc"><i>49</i>&nbsp;            throw new NotFound(&quot;Categoria não localizada.&quot;);</b>
+<i>50</i>&nbsp;        }
+<i>51</i>&nbsp;    }
+<i>52</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-08-15 15:55</div>
+</div>
+</body>
+</html>

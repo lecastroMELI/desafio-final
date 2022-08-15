@@ -1,0 +1,165 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Batch</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">br.com.meli.desafio_final.model.entity</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Batch (br.com.meli.desafio_final.model.entity)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Batch</td>
+<td class="coverageStat">
+  <span class="percent">
+    86,7%
+  </span>
+  <span class="absValue">
+    (13/ 15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    86,7%
+  </span>
+  <span class="absValue">
+    (13/ 15)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Batch$BatchBuilder</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    87,5%
+  </span>
+  <span class="absValue">
+    (14/ 16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87,5%
+  </span>
+  <span class="absValue">
+    (14/ 16)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package br.com.meli.desafio_final.model.entity;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+<i>4</i>&nbsp;import lombok.*;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import javax.persistence.*;
+<i>7</i>&nbsp;import javax.validation.constraints.NotNull;
+<i>8</i>&nbsp;import java.io.Serializable;
+<i>9</i>&nbsp;import java.time.LocalDate;
+<i>10</i>&nbsp;import java.time.LocalDateTime;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;@Entity
+<b class="fc"><i>13</i>&nbsp;@Setter @Getter</b>
+<b class="fc"><i>14</i>&nbsp;@Builder</b>
+<b class="fc"><i>15</i>&nbsp;@AllArgsConstructor</b>
+<b class="nc"><i>16</i>&nbsp;@NoArgsConstructor</b>
+<i>17</i>&nbsp;public class Batch {
+<i>18</i>&nbsp;    @Id
+<i>19</i>&nbsp;    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<b class="fc"><i>20</i>&nbsp;    private Long id;</b>
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    @NotNull(message = &quot;O número do lote precisa ser informado.&quot;)
+<b class="fc"><i>23</i>&nbsp;    private Long batchNumber;</b>
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    @ManyToOne
+<i>26</i>&nbsp;    @JoinColumn(name = &quot;adsense_id&quot;)
+<i>27</i>&nbsp;    @JsonIgnoreProperties(&quot;batch&quot;)
+<b class="fc"><i>28</i>&nbsp;    private Adsense adsense;</b>
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;    @NotNull(message = &quot;A temperatura do produto precisa ser informada.&quot;)
+<b class="fc"><i>31</i>&nbsp;    private float currentTemperature;</b>
+<i>32</i>&nbsp;
+<i>33</i>&nbsp;    @NotNull(message = &quot;A temperatura mínima do produto precisa ser informada.&quot;)
+<b class="fc"><i>34</i>&nbsp;    private float minimumTemperature;</b>
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    @NotNull(message = &quot;A quantidade do produto precissa ser informada.&quot;)
+<b class="fc"><i>37</i>&nbsp;    private int currentQuantity;</b>
+<i>38</i>&nbsp;
+<i>39</i>&nbsp;    @NotNull(message = &quot;A quantidade inicial do produto precisa ser informada.&quot;)
+<b class="fc"><i>40</i>&nbsp;    private int initialQuantity;</b>
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    @NotNull(message = &quot;A data de fabricação do produto precisa ser informada.&quot;)
+<b class="fc"><i>43</i>&nbsp;    private LocalDate manufacturingDate;</b>
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    @NotNull(message = &quot;A hora de fabricação do produto precisa ser informada.&quot;)
+<b class="fc"><i>46</i>&nbsp;    private LocalDateTime manufacturingTime;</b>
+<i>47</i>&nbsp;
+<i>48</i>&nbsp;    @NotNull(message = &quot;A data de validade do produto precisa ser informada.&quot;)
+<b class="fc"><i>49</i>&nbsp;    private LocalDate dueDate;</b>
+<i>50</i>&nbsp;
+<i>51</i>&nbsp;    @ManyToOne
+<i>52</i>&nbsp;    @JoinColumn(name = &quot;inBoundOrder_id&quot;)
+<i>53</i>&nbsp;    @JsonIgnoreProperties(&quot;batch&quot;)
+<b class="nc"><i>54</i>&nbsp;    private InBoundOrder inBoundOrder;</b>
+<i>55</i>&nbsp;
+<i>56</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-08-15 15:55</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: BatchController</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">br.com.meli.desafio_final.controller</a> ]
+</div>
+
+<h1>Coverage Summary for Class: BatchController (br.com.meli.desafio_final.controller)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BatchController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/ 6)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package br.com.meli.desafio_final.controller;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import br.com.meli.desafio_final.dto.AdsensByDueDateAndCategoryDto;
+<i>4</i>&nbsp;import br.com.meli.desafio_final.dto.AdsenseBySectionAndDueDateDto;
+<i>5</i>&nbsp;import br.com.meli.desafio_final.dto.BatchDto;
+<i>6</i>&nbsp;import br.com.meli.desafio_final.service.implementation.BatchService;
+<i>7</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>8</i>&nbsp;import org.springframework.http.HttpStatus;
+<i>9</i>&nbsp;import org.springframework.http.ResponseEntity;
+<i>10</i>&nbsp;import org.springframework.web.bind.annotation.*;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;import java.util.List;
+<i>13</i>&nbsp;
+<i>14</i>&nbsp;@RestController
+<i>15</i>&nbsp;@RequestMapping(&quot;/batch&quot;)
+<b class="fc"><i>16</i>&nbsp;public class BatchController {</b>
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    @Autowired
+<i>19</i>&nbsp;    BatchService service;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    /**
+<i>22</i>&nbsp;     * Nesse método retornamos uma lista de anúncio por Id
+<i>23</i>&nbsp;     * @param adsenseId
+<i>24</i>&nbsp;     */
+<i>25</i>&nbsp;    @GetMapping(&quot;/{adsenseId}&quot;)
+<i>26</i>&nbsp;    public ResponseEntity&lt;List&lt;BatchDto&gt;&gt; findAllByAdsenseId(@PathVariable Long adsenseId) {
+<b class="fc"><i>27</i>&nbsp;        return ResponseEntity.ok(service.findAllByAdsenseId(adsenseId));</b>
+<i>28</i>&nbsp;    }
+<i>29</i>&nbsp;
+<i>30</i>&nbsp;    /**
+<i>31</i>&nbsp;     * Esse método retorna uma lista de todos os lotes armazenados em um setor de um armazém,
+<i>32</i>&nbsp;     * filtrados por um período de vencimento
+<i>33</i>&nbsp;     * e ordenados por sua data de validade
+<i>34</i>&nbsp;     * @param sectionId
+<i>35</i>&nbsp;     * @param numberOfDays
+<i>36</i>&nbsp;     */
+<i>37</i>&nbsp;    @GetMapping(&quot;/due-date&quot;)
+<i>38</i>&nbsp;    public ResponseEntity&lt;List&lt;AdsenseBySectionAndDueDateDto&gt;&gt; findAdsenseBySectionAndDueDate(
+<i>39</i>&nbsp;        @RequestParam long sectionId, @RequestParam int numberOfDays) {
+<b class="fc"><i>40</i>&nbsp;        return ResponseEntity.status(HttpStatus.OK)</b>
+<b class="fc"><i>41</i>&nbsp;            .body(service.findAdsenseBySectionAndDueDate(sectionId, numberOfDays));</b>
+<i>42</i>&nbsp;    }
+<i>43</i>&nbsp;
+<i>44</i>&nbsp;    /**
+<i>45</i>&nbsp;     * Esse método retorna uma lista de lote dentro do prazo de validade solicitado,
+<i>46</i>&nbsp;     * que pertencem a uma determinada categoria de produto
+<i>47</i>&nbsp;     * ordenada de forma crescente ou decrescente pela quantidade
+<i>48</i>&nbsp;     *
+<i>49</i>&nbsp;     * @param numberOfDays
+<i>50</i>&nbsp;     * @param category
+<i>51</i>&nbsp;     * @param order
+<i>52</i>&nbsp;     */
+<i>53</i>&nbsp;    @GetMapping(&quot;/due-date/list&quot;)
+<i>54</i>&nbsp;    public ResponseEntity&lt;List&lt;AdsensByDueDateAndCategoryDto&gt;&gt; findAdsenseByDueDateAndCategory(
+<i>55</i>&nbsp;        @RequestParam int numberOfDays, @RequestParam String category, @RequestParam String order) {
+<b class="fc"><i>56</i>&nbsp;        return ResponseEntity.status(HttpStatus.OK)</b>
+<b class="fc"><i>57</i>&nbsp;            .body(service.findAdsenseByDueDateAndCategory(numberOfDays, category, order));</b>
+<i>58</i>&nbsp;    }
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-08-15 15:55</div>
+</div>
+</body>
+</html>

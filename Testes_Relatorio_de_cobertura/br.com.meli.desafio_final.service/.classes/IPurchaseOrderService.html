@@ -1,0 +1,64 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: IPurchaseOrderService</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">br.com.meli.desafio_final.service</a> ]
+</div>
+
+<h1>Coverage Summary for Class: IPurchaseOrderService (br.com.meli.desafio_final.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">IPurchaseOrderService</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package br.com.meli.desafio_final.service;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import br.com.meli.desafio_final.dto.AdsenseDto;
+<i>4</i>&nbsp;import br.com.meli.desafio_final.dto.PurchaseOrderDto;
+<i>5</i>&nbsp;import br.com.meli.desafio_final.model.entity.PurchaseOrder;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.util.List;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;public interface IPurchaseOrderService {
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;    Double save(PurchaseOrder purchaseOrder);
+<i>12</i>&nbsp;    PurchaseOrder findById(Long id);
+<i>13</i>&nbsp;    PurchaseOrder updateToFinished(Long purchaseOrderId);
+<i>14</i>&nbsp;    List&lt;AdsenseDto&gt; findAdsensesByPurchaseOrderId(Long id);
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;}
+<i>17</i>&nbsp;
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-08-15 15:55</div>
+</div>
+</body>
+</html>

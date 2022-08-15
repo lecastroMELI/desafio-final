@@ -1,0 +1,186 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ValidationService</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">br.com.meli.desafio_final.service.implementation</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ValidationService (br.com.meli.desafio_final.service.implementation)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ValidationService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/ 9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/ 15)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ValidationService$MockitoMock$243062233</td>
+  </tr>
+  <tr>
+    <td class="name">ValidationService$MockitoMock$243062233$auxiliary$1TMIoKQu</td>
+  </tr>
+  <tr>
+    <td class="name">ValidationService$MockitoMock$243062233$auxiliary$7yMgFAkj</td>
+  </tr>
+  <tr>
+    <td class="name">ValidationService$MockitoMock$243062233$auxiliary$86XmHndi</td>
+  </tr>
+  <tr>
+    <td class="name">ValidationService$MockitoMock$243062233$auxiliary$JZOUuOcr</td>
+  </tr>
+  <tr>
+    <td class="name">ValidationService$MockitoMock$243062233$auxiliary$jzP1yqTd</td>
+  </tr>
+  <tr>
+    <td class="name">ValidationService$MockitoMock$243062233$auxiliary$XYd42ujv</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/ 9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/ 15)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package br.com.meli.desafio_final.service.implementation;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import br.com.meli.desafio_final.exception.BadRequest;
+<i>4</i>&nbsp;import br.com.meli.desafio_final.model.entity.Agent;
+<i>5</i>&nbsp;import br.com.meli.desafio_final.model.entity.Product;
+<i>6</i>&nbsp;import br.com.meli.desafio_final.model.entity.Section;
+<i>7</i>&nbsp;import br.com.meli.desafio_final.model.entity.Seller;
+<i>8</i>&nbsp;import br.com.meli.desafio_final.repository.*;
+<i>9</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>10</i>&nbsp;import org.springframework.stereotype.Service;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;@Service
+<b class="fc"><i>14</i>&nbsp;public class ValidationService {</b>
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    @Autowired
+<i>17</i>&nbsp;    SectionRepository sectionRepository;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;    @Autowired
+<i>20</i>&nbsp;    SellerRepository sellerRepository;
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    @Autowired
+<i>23</i>&nbsp;    ProductRepository productRepository;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    @Autowired
+<i>26</i>&nbsp;    BatchRepository batchRepository;
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    @Autowired
+<i>29</i>&nbsp;    AgentRepository agentRepository;
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    /**
+<i>32</i>&nbsp;     * Metodo Valida a existência de uma Section no DB.
+<i>33</i>&nbsp;     * @param section
+<i>34</i>&nbsp;     */
+<i>35</i>&nbsp;    public Section validateSection(Section section) {
+<b class="fc"><i>36</i>&nbsp;       return sectionRepository.findById(section.getId())</b>
+<b class="fc"><i>37</i>&nbsp;                .orElseThrow(() -&gt; {</b>
+<b class="fc"><i>38</i>&nbsp;                    throw new BadRequest(&quot;Section não encontrada&quot;);</b>
+<i>39</i>&nbsp;                });
+<i>40</i>&nbsp;    }
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    /**
+<i>43</i>&nbsp;     * Metodo Valida a existência de um Seller no DB.
+<i>44</i>&nbsp;     * @param seller
+<i>45</i>&nbsp;     */
+<i>46</i>&nbsp;    public void validateSeller(Seller seller) {
+<b class="fc"><i>47</i>&nbsp;        sellerRepository.findById(seller.getId())</b>
+<b class="fc"><i>48</i>&nbsp;                .orElseThrow(() -&gt; {</b>
+<b class="fc"><i>49</i>&nbsp;                    throw new BadRequest(&quot;Seller não encontrada&quot;);</b>
+<i>50</i>&nbsp;                });
+<b class="fc"><i>51</i>&nbsp;    }</b>
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;    /**
+<i>54</i>&nbsp;     * Metodo Valida a existência de um Product no DB.
+<i>55</i>&nbsp;     * @param product
+<i>56</i>&nbsp;     */
+<i>57</i>&nbsp;    public void validateProduct(Product product) {
+<b class="fc"><i>58</i>&nbsp;        productRepository.findById(product.getId())</b>
+<b class="fc"><i>59</i>&nbsp;                .orElseThrow(() -&gt; {</b>
+<b class="fc"><i>60</i>&nbsp;                    throw new BadRequest(&quot;Product não encontrada&quot;);</b>
+<i>61</i>&nbsp;                });
+<b class="fc"><i>62</i>&nbsp;    }</b>
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;    /**
+<i>65</i>&nbsp;     * Nesse método estamos validando um representante
+<i>66</i>&nbsp;     * @param id
+<i>67</i>&nbsp;     * @return
+<i>68</i>&nbsp;     */
+<i>69</i>&nbsp;    public Agent validateAgent(long id) {
+<b class="fc"><i>70</i>&nbsp;        return agentRepository.findById(id)</b>
+<b class="fc"><i>71</i>&nbsp;                .orElseThrow(() -&gt; {</b>
+<b class="fc"><i>72</i>&nbsp;                    throw new BadRequest(&quot;Representante não encontrado&quot;);</b>
+<i>73</i>&nbsp;                });
+<i>74</i>&nbsp;    }
+<i>75</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-08-15 15:55</div>
+</div>
+</body>
+</html>

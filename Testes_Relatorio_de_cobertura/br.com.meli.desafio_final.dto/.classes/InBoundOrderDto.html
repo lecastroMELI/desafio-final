@@ -1,0 +1,118 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: InBoundOrderDto</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">br.com.meli.desafio_final.dto</a> ]
+</div>
+
+<h1>Coverage Summary for Class: InBoundOrderDto (br.com.meli.desafio_final.dto)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">InBoundOrderDto</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    25%
+  </span>
+  <span class="absValue">
+    (3/ 12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    59,1%
+  </span>
+  <span class="absValue">
+    (13/ 22)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package br.com.meli.desafio_final.dto;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import br.com.meli.desafio_final.model.entity.Batch;
+<i>4</i>&nbsp;import lombok.Data;
+<i>5</i>&nbsp;import lombok.NoArgsConstructor;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;import java.time.LocalDate;
+<i>8</i>&nbsp;import java.time.LocalDateTime;
+<i>9</i>&nbsp;
+<b class="fc"><i>10</i>&nbsp;@Data</b>
+<b class="fc"><i>11</i>&nbsp;@NoArgsConstructor</b>
+<i>12</i>&nbsp;public class InBoundOrderDto {
+<i>13</i>&nbsp;
+<b class="nc"><i>14</i>&nbsp;    private Long batchNumber;</b>
+<b class="nc"><i>15</i>&nbsp;    private Long adsense_id;</b>
+<b class="nc"><i>16</i>&nbsp;    private float currentTemperature;</b>
+<b class="nc"><i>17</i>&nbsp;    private float minimumTemperature;</b>
+<b class="nc"><i>18</i>&nbsp;    private int initialQuantity;</b>
+<b class="nc"><i>19</i>&nbsp;    private int currentQuantity;</b>
+<b class="nc"><i>20</i>&nbsp;    private LocalDate manufacturingDate;</b>
+<b class="nc"><i>21</i>&nbsp;    private LocalDateTime manufacturingTime;</b>
+<b class="nc"><i>22</i>&nbsp;    private LocalDate dueDate;</b>
+<i>23</i>&nbsp;
+<b class="fc"><i>24</i>&nbsp;    public InBoundOrderDto(Batch batch) {</b>
+<b class="fc"><i>25</i>&nbsp;        setBatchNumber(batch.getBatchNumber());</b>
+<b class="fc"><i>26</i>&nbsp;        setAdsense_id(batch.getAdsense().getId());</b>
+<b class="fc"><i>27</i>&nbsp;        setCurrentTemperature(batch.getCurrentTemperature());</b>
+<b class="fc"><i>28</i>&nbsp;        setMinimumTemperature(batch.getMinimumTemperature());</b>
+<b class="fc"><i>29</i>&nbsp;        setInitialQuantity(batch.getInitialQuantity());</b>
+<b class="fc"><i>30</i>&nbsp;        setCurrentQuantity(batch.getCurrentQuantity());</b>
+<b class="fc"><i>31</i>&nbsp;        setManufacturingDate(batch.getManufacturingDate());</b>
+<b class="fc"><i>32</i>&nbsp;        setManufacturingTime(batch.getManufacturingTime());</b>
+<b class="fc"><i>33</i>&nbsp;        setDueDate(batch.getDueDate());</b>
+<b class="fc"><i>34</i>&nbsp;    }</b>
+<i>35</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-08-15 15:55</div>
+</div>
+</body>
+</html>
