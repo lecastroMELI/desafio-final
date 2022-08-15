@@ -35,6 +35,7 @@ public class BatchService implements IBatchService {
      * @param id
      * @return
      */
+    // TODO: BATCH SERVICE: TESTE - IMPLEMENTAR PARA findBatchByAdsenseId
     @Override
     public List<Batch> findBatchByAdsenseId(Long id) {
         List<Batch> batchList = batchRepository.findBatchesByAdsenseId(id);
@@ -127,6 +128,7 @@ public class BatchService implements IBatchService {
      * @param batchNumber
      * @param adsenseId
      */
+    // TODO: BATCH SERVICE: TESTE - IMPLEMENTAR PARA findBatchByBatchNumberAndAdsenseId
     public void findBatchByBatchNumberAndAdsenseId(Long batchNumber, Long adsenseId) {
         Optional<Batch> batch = batchRepository.findBatchByBatchNumberAndAdsenseId(batchNumber, adsenseId);
         if(batch.isPresent()) throw new NotFound("Produto deste usuário já está cadastrado.");
@@ -189,10 +191,12 @@ public class BatchService implements IBatchService {
         LocalDate finalDate = initialDate.plusDays(numberOfDays);
 
         return order.equalsIgnoreCase("asc")
-            ? batchRepository.getAdsenseByDueDateAndCategoryAsc(initialDate, finalDate, category).stream()
+            ? batchRepository.getAdsenseByDueDateAndCategoryAsc(initialDate, finalDate, category)
+                .stream()
                 .map((obj) -> new AdsensByDueDateAndCategoryDto(obj[0], obj[1], obj[2], obj[3], obj[4], obj[5]))
                 .collect(Collectors.toList())
-            : batchRepository.getAdsenseByDueDateAndCategoryDesc(initialDate, finalDate, category).stream()
+            : batchRepository.getAdsenseByDueDateAndCategoryDesc(initialDate, finalDate, category)
+                .stream()
                 .map((obj) -> new AdsensByDueDateAndCategoryDto(obj[0], obj[1], obj[2], obj[3], obj[4], obj[5]))
                 .collect(Collectors.toList());
     }
