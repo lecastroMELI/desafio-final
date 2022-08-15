@@ -15,14 +15,12 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatchers;
 import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
-import org.springframework.dao.EmptyResultDataAccessException;
 
 import java.util.Collections;
 import java.util.List;
@@ -53,12 +51,11 @@ public class AdsenseServiceTest {
     @Mock
     private ProductService productService;
 
-    // TODO: REMOVER A PALAVRA "TEST" DOS NOMES DOS MÉTODOS, POIS A MAIORIA NÃO POSSUI
     // TODO: ADICIONAR @DisplayName() AOS TESTES QUE NÃO O POSSUI
-    // TODO: ADICIONAR O public AOS MÉTODOS
 
     @Test
-    public void find_findByCategory_whenAdsensesByCategoryExist() {
+    @DisplayName("Busca pela categoria: Valida se uma lista de anúncios é retornada quando a categoria existe.")
+    void findByCategory_whenAdsensesByCategoryExist() {
         BDDMockito.when(adsenseRepository.findAll())
                 .thenReturn(AdsenseUtils.generateAdsenseList());
 
@@ -69,19 +66,23 @@ public class AdsenseServiceTest {
     }
 
     @Test
-    public void find_findByCategory_whenAdsensesByCategoryDontExist() {
-        BDDMockito.when(adsenseRepository.findAll()).thenReturn(Collections.emptyList());
-        Exception exception = null;
+    @DisplayName("Busca pela categoria: Valida se retorna uma exceção quando a categoria não existe.")
+    void findByCategory_whenAdsensesByCategoryDontExist() {
         List<Adsense> adsenseList = null;
+        Exception exception = null;
+
+        BDDMockito.when(adsenseRepository.findAll())
+            .thenReturn(Collections.emptyList());
+
         try {
             adsenseList = adsenseService.findByCategory(Category.FRESH);
         } catch (Exception e) {
             exception = e;
         }
-        verify(adsenseRepository, atLeastOnce()).findAll();
-        Assertions.assertThat(adsenseList).isNull();
+
+        assertThat(adsenseList).isNull();
         assertThat(exception.getMessage()).isEqualTo("💢 Lista de anúncios não encontrada");
-        // TODO: Mensagem do erro
+        verify(adsenseRepository, atLeastOnce()).findAll();
     }
 
     @Test
@@ -127,21 +128,24 @@ public class AdsenseServiceTest {
     }
 
     @Test
-    void find_findAdsensesByProductId_whenSuccess() {
+    @DisplayName("Listar anúncios: Valida se retorna uma lista de anúncios ao pesquisar pelo ID do produto.")
+    void findAdsensesByProductId_whenSuccess() {
         BDDMockito.when(adsenseRepository.findAll())
-                .thenReturn(List.of(AdsenseUtils.newAdsense1ToSave()));
+            .thenReturn(List.of(AdsenseUtils.newAdsense1ToSave()));
+
         List<AdsenseIdDto> adsenseList = adsenseService.findByProductId(1L);
         List<AdsenseIdDto> newList = AdsenseIdDto.convertDto(List.of(AdsenseUtils.newAdsense1ToSave()));
+
         assertThat(adsenseList).isNotNull();
         assertThat(adsenseList.contains(newList));
     }
 
-
+    @DisplayName("Valida se retorna a quantidade de produtos por armazém ao pesquisar pelo ID do anúncio.")
     @Test
-    public void testFindAdsenseByWarehouseAndQuantity() {
+    void findAdsenseByWarehouseAndQuantity() {
         long adsenseId = AdsenseUtils.newAdsense1ToSave().getId();
         BDDMockito.when(batchService.getAdsenseByWarehouseAndQuantity(adsenseId))
-                .thenReturn(AdsenseByWarehouseDtoUtils.AdsenseByWarehouseDtoListDto());
+            .thenReturn(AdsenseByWarehouseDtoUtils.AdsenseByWarehouseDtoListDto());
 
         List<AdsenseByWarehouseDto> adsenseList = adsenseService.findAdsenseByWarehouseAndQuantity(adsenseId);
 
@@ -212,6 +216,7 @@ public class AdsenseServiceTest {
     }
 
     @Test
+    @DisplayName("DELETE: Valida se um anúncio é apagado com sucesso quando é ID é válido.")
     void deleteAdsenseById() {
         Long adsenseId = AdsenseUtils.adsenseWithId().getId();
 
