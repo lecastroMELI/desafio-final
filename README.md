@@ -117,14 +117,15 @@ Implementação do CRUD para gerenciamento dos anúncios.
 Para rodar os testes, no IntelliJ, no menu ```Run``` escolha ```Run...``` ```>``` 
 ```br.com.meli.desafio_final``` ```>``` ```Cover```
 
-## 📈 Relatório de Cobertura de Testes
+## 📊 Relatório de Cobertura de Testes
 
 Visualize a **página principal** do relatório contendo detalhadamente a cobertura de testes gerada pelo Coverage do IntelliJ.
-Para isso, vá até a pasta ```/desafio_final/Testes_Relatorio_de_cobertura``` e abra o arquivo ***index.html*** no seu navegador. 
+Para isso, vá até a pasta ```/desafio_final/Testes_Relatorio_de_cobertura`` e abra o arquivo ***index.html*** no seu navegador. 
 
 ![Cobertura de testes](Testes_Relatorio_de_cobertura/cobertura.png)
 
-
+# 🆔 Diagrama de Entidade-Relacionamento
+![Diagrama ER](Requisito_6_-_Diagrama_de_entidade_e_relacionamento.png)
 # 👩🏻‍💻 < Devas /> 
 
 #### Requisitos 1 ao 5 na branch ```main```
