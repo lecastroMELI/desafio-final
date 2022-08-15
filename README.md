@@ -1,39 +1,31 @@
-
-# Projeto Integrador
+# MERCADO LIVRE - FRESCOS
+##### Projeto Integrador
+Projeto final para o Bootcamp de Backend Java Wave 6 do MELI.
 
 ## Sobre:
-Nesse projeto, aplicamos os conteudos que aprendemos até este momento no BootCamp de Java. Trata-se de uma aplicação desenvolvida de forma a implementar uma API REST.
+O objetivo deste projeto final é implementar uma API REST no âmbito do slogan e aplicar
+os conteúdos trabalhados durante o BOOTCAMP MELI. (Git, Java, Spring, Banco de Dados,
+Qualidade e Segurança).
 
-#### Para isso, implementamos os seguntes recursos:
+### Para isso, implementamos os seguntes recursos:
 
 - A possibilidade de Cadastrar ou Atualizar um lote de produtos por meio de um representante;
-
 - A possibilidade de Consultar um produto;
-
 - Listar os produtos por categoria;
-
 - A possibilidade do comprador adicionar o produto ao carrinho;
-
 - Mostrar os produtos no pedido;
-
 - Modificar o status do pedido;
-
 - Listar o produto em todos os lotes;
-
 - Listar o produto em todos os lotes ordenados pelo lote, quantidade ou data de validade;
-
 - Listar a quantidade total de produtos por armazém;
-
 - Listar os lotes de um setor em um armazém ordenados pela data de vencimento;
-
-- Listar os lotes dentro do prazo de validade solicitado que pertece a uma determinada categoria de produto, podendo
-  ser ordenada pela quantidade de forma crescente ou decrescente.
-
+- Listar os lotes dentro do prazo de validade solicitado que pertece a uma determinada categoria de produto, podendo ser ordenada pela quantidade de forma crescente ou decrescente.
+  
 Como a nossa equipe de desenvolvedoras é muito preocupada com a qualidade do nosso serviço, desenvolvemos testes unitários, garantindo que nossa aplicação funciona, além de ser escalável e segura.
 
-# Documentação da API
+# 🗂 Documentação da API
 
-### Requisito 06
+## Requisito 06
 Implementação do CRUD para gerenciamento dos anúncios.
 
 #### 1. Retorna todos os anúncios
@@ -59,19 +51,18 @@ Implementação do CRUD para gerenciamento dos anúncios.
   POST /adsense/insert
 ```
 
-**Resquest**
+##### Resquest
 
 ```json
 {
- "seller": {
-   "id": Long
- },
- "product": {
-   "id": Long
- },
- "price": Double
+   "seller": {
+     "id": Long
+   },
+   "product": {
+     "id": Long
+   },
+  "price": Double
 }
-
 ```
 
 #### 4. Atualiza um anúncio específico com base no ID
@@ -85,13 +76,13 @@ Implementação do CRUD para gerenciamento dos anúncios.
 | `id`      | `Long` | **Obrigatório**. O ID do anúncio que você quer |
 | `sellerId`      | `Long` | **Obrigatório**. O ID do vendedor proprietário do anúncio |
 
-**Resquest**
+#### Resquest
 ```json
 {
- "product": {
-   "id": Long
- },
- "price": Double
+   "product": {
+     "id": Long
+   },
+   "price": Double
 }
 ```
 
@@ -105,47 +96,36 @@ Implementação do CRUD para gerenciamento dos anúncios.
 | :---------- | :--------- | :------------------------------------------ |
 | `id`      | `Long` | **Obrigatório**. O ID do anúncio que você quer |
 
-## Rodando localmente
+## ✅ Rodando localmente
 
-- Clone o projeto
+1. Clone o projeto
 
 ```bash
   git clone git@github.com:lecastroMELI/desafio-final.git
 ```
 
-- Abra a IDEA IntelliJ e ```run``` o arquivo:
+2. Abra a IDEA **IntelliJ** e no menu ```Run``` escolha ```Run...``` ```>```
+   ```DesafioFinalApplication``` ```>``` ```Run```
+3. Faça o download e execute no **MySQLWorkbench** o script [Requisito_6_-_Query_Popula_Banco.sql](Requisito_6_-_Query_Popula_Banco.sql)
 
-  src/main/java/br/com/meli/desafio_final/***DesafioFinalApplication**.java
+4. Importe a coleção [Requisito_6_-_postman_collection.json](Requisito_6_-_postman_collection.json) para o **Postman**
 
-- Faça o download e execute no MySQLWorkbench o script [Requisito_6_-_Query_Popula_Banco.sql](Requisito_6_-_Query_Popula_Banco.sql)
+5. Realize os testes manuais utilizando as rotas importadas no Postman
 
-- Importe a coleção [Requisito_6_-_postman_collection.json](Requisito_6_-_postman_collection.json) para o Postman
+## 💻 Rodando os testes
 
-- Realize os testes manuais utilizando as rotas importadas no Postman
+Para rodar os testes, no IntelliJ, no menu ```Run``` escolha ```Run...``` ```>``` 
+```br.com.meli.desafio_final``` ```>``` ```Cover```
 
-## Rodando os testes
+## 📈 Relatório de Cobertura de Testes
 
-Para rodar os testes, no IntelliJ localize a pasta
-
-```bash
-  src/test/java/br/com/meli/desafio_final
-```
-
-Execute o comando ```run``` em
-```bash
-  br.com.meli.desafio_final
-```
-
-## Relatório de Cobertura de Testes
-
-Visualize a [página principal](Testes_Relatorio_de_cobertura/index.html) do relatório contendo detalhadamente a cobertura de testes gerada pelo Coverage do IntelliJ.
+Visualize a **página principal** do relatório contendo detalhadamente a cobertura de testes gerada pelo Coverage do IntelliJ.
+Para isso, vá até a pasta ```/desafio_final/Testes_Relatorio_de_cobertura``` e abra o arquivo ***index.html*** no seu navegador. 
 
 ![Cobertura de testes](Testes_Relatorio_de_cobertura/cobertura.png)
 
 
-
-
-# Autores 👩🏻‍💻
+# 👩🏻‍💻 < Devas /> 
 
 #### Requisitos 1 ao 5 na branch ```main```
 
