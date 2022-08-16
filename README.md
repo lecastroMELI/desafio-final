@@ -1,4 +1,4 @@
-# 🥬🥦 MERCADO LIVRE - FRESCOS 🍓🥭
+# 🥬🥦 MERCADO LIVRE - FRESCOS 🍓🍋
 
 ##### 🍍 Projeto Integrador
 Projeto final para o Bootcamp de Backend Java Wave 6 do MELI.
@@ -41,11 +41,11 @@ No âmbito do anúncio foram implementadas as principais funções para o gerenc
 - A possibilidade de LISTAR todos os anúncios.
 
 # 📕 Requisito 06
-### 🍅 User Story
+### User Story
 Implementação do CRUD para gerenciamento dos anúncios.
 
 ### Definições para os dois níveis do Requisito 6.
-#### 🥔 Nível 1: Base
+#### 🥑 Nível 1: Base
 -[x] Readme descritivo.
 -[x] Documentação em PDF com formato de User Story fornecido.
 -[x] User Story com até 4 endpoints.
@@ -97,7 +97,7 @@ Implementação do CRUD para gerenciamento dos anúncios.
 }
 ```
 
-#### 🍒 4. Atualiza um anúncio específico com base no ID
+#### 🥭 4. Atualiza um anúncio específico com base no ID
 
 ```http
   PUT /adsense/{id}
@@ -151,13 +151,17 @@ Para rodar os testes, no IntelliJ, no menu ```Run``` escolha ```Run...``` ```>``
 
 ## 📊 Relatório de Cobertura de Testes
 
-Visualize a **página principal** do relatório contendo detalhadamente a cobertura de testes gerada pelo Coverage do IntelliJ.
-Para isso, vá até a pasta ```/desafio_final/Testes_Relatorio_de_cobertura`` e abra o arquivo ***index.html*** no seu navegador. 
+É possível visualizar a **página principal** do relatório contendo detalhadamente a cobertura de testes gerada pelo Coverage do IntelliJ.
 
-![Cobertura de testes](Testes_Relatorio_de_cobertura/cobertura.png)
+Para isso, vá até a pasta ```/desafio_final/Testes_Relatorio_de_cobertura``` e abra o arquivo ***index.html*** no seu navegador.
+
+A seguir a visualização da cobertura geral dos testes com destaque para camada **service** e **controller**:
+
+![Cobertura geral de testes](Testes_Relatorio_de_cobertura/cobertura.png)
 
 # 🆔 Diagrama de Entidade-Relacionamento
 ![Diagrama ER](Requisito_6_-_Diagrama_de_entidade_e_relacionamento.png)
+
 # 👩🏻‍💻 < Devas /> 
 
 Este projeto teve por base o desenvolvimento em grupo totalizando 6 requisitos obrigatórios, sendo que do 1º ao 5º foram realizadas implementações em grupo e o 6º a implementação foi individual.
