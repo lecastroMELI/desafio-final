@@ -178,6 +178,11 @@ A seguir a visualização da cobertura geral dos testes com destaque para camada
 # 🆔 Diagrama de Entidade-Relacionamento
 ![Diagrama ER](Documentação/Requisito_6_-_Diagrama_de_entidade_e_relacionamento.png)
 
+## Implementações futuras / Melhorias
+
+- Permitir o update do anúncio, apenas se não tiverem sido realizadas nenhuma venda;
+- Validar que somente o vendedor proprietário do anúncio possa atualizá-lo.
+
 # 👩🏻‍💻 < Devas /> 
 
 Este projeto teve por base o desenvolvimento em grupo totalizando 6 requisitos obrigatórios, sendo que do 1º ao 5º foram realizadas implementações em grupo e o 6º a implementação foi individual.
