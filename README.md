@@ -59,7 +59,15 @@ Implementação do CRUD para gerenciamento dos anúncios.
 -[x] Cobertura de teste superior a 80%.
 -[ ] Documentação por meio do Swagger.
 
-# 🗂 Documentação da API
+# 🗂 Documentação
+### Arquivos
+* [User Story](Documentação/Requisito_6_-_User_Story.pdf)
+* [DER](Documentação/Requisito_6_-_Diagrama_de_entidade_e_relacionamento.png)
+* [Relatório de Cobertura de Testes](Documentação/Testes_Relatorio_de_cobertura)
+* [Query para popular o banco](Documentação/Requisito_6_-_Query_Popula_Banco.sql)
+* [Postman collection](Documentação/Requisito_6_-_postman_collection.json)
+
+### API
 #### 🥚 1. Retorna todos os anúncios
 
 ```http
@@ -138,9 +146,9 @@ Implementação do CRUD para gerenciamento dos anúncios.
 
 2. Abra a IDEA **IntelliJ** e no menu ```Run``` escolha ```Run...``` ```>```
    ```DesafioFinalApplication``` ```>``` ```Run```
-3. Faça o download e execute no **MySQLWorkbench** o script [Requisito_6_-_Query_Popula_Banco.sql](Requisito_6_-_Query_Popula_Banco.sql)
+3. Faça o download e execute no **MySQLWorkbench** o script [Requisito_6_-_Query_Popula_Banco.sql](Documentação/Requisito_6_-_Query_Popula_Banco.sql)
 
-4. Importe a coleção [Requisito_6_-_postman_collection.json](Requisito_6_-_postman_collection.json) para o **Postman**
+4. Importe a coleção [Requisito_6_-_postman_collection.json](Documentação/Requisito_6_-_postman_collection.json) para o **Postman**
 
 5. Realize os testes manuais utilizando as rotas importadas no Postman
 
@@ -153,14 +161,14 @@ Para rodar os testes, no IntelliJ, no menu ```Run``` escolha ```Run...``` ```>``
 
 É possível visualizar a **página principal** do relatório contendo detalhadamente a cobertura de testes gerada pelo Coverage do IntelliJ.
 
-Para isso, vá até a pasta ```/desafio_final/Testes_Relatorio_de_cobertura``` e abra o arquivo ***index.html*** no seu navegador.
+Para isso, em seu explorador de arquivos (como Windows Explorer ou Finder) vá até a pasta ```.../Documentação/Testes_Relatorio_de_cobertura``` e abra o arquivo **index.html** no seu ***navegador***.
 
 A seguir a visualização da cobertura geral dos testes com destaque para camada **service** e **controller**:
 
-![Cobertura geral de testes](Testes_Relatorio_de_cobertura/cobertura.png)
+![Cobertura geral de testes](Documentação/Testes_Relatorio_de_cobertura/cobertura.png)
 
 # 🆔 Diagrama de Entidade-Relacionamento
-![Diagrama ER](Requisito_6_-_Diagrama_de_entidade_e_relacionamento.png)
+![Diagrama ER](Documentação/Requisito_6_-_Diagrama_de_entidade_e_relacionamento.png)
 
 # 👩🏻‍💻 < Devas /> 
 
