@@ -1,13 +1,20 @@
-# MERCADO LIVRE - FRESCOS
-##### Projeto Integrador
+# 🥬🥦 MERCADO LIVRE - FRESCOS 🍓🥭
+
+##### 🍍 Projeto Integrador
 Projeto final para o Bootcamp de Backend Java Wave 6 do MELI.
 
-## Sobre:
-O objetivo deste projeto final é implementar uma API REST no âmbito do slogan e aplicar
+## 🍏 Sobre:
+O objetivo deste projeto final é implementar uma API REST e aplicar
 os conteúdos trabalhados durante o BOOTCAMP MELI. (Git, Java, Spring, Banco de Dados,
 Qualidade e Segurança).
 
-### Para isso, implementamos os seguntes recursos:
+Este projeto foi dividido em **duas fases**, contemplando a implementação de 6 requisitos obrigatórios, sendo:
+   1. Desenvolvimento em **grupo**: Requisitos 1 à 5;
+   2. Desenvolvimento **individual**: Requisito 6.
+
+O projeto consiste na implementação de um serviço capaz de gerenciar a venda de produtos frescos e seu armazenamento. Para isso foram implementados os seguintes recursos:
+
+### 🍐 FASE 1. Implementações em grupo:
 
 - A possibilidade de Cadastrar ou Atualizar um lote de produtos por meio de um representante;
 - A possibilidade de Consultar um produto;
@@ -23,18 +30,43 @@ Qualidade e Segurança).
   
 Como a nossa equipe de desenvolvedoras é muito preocupada com a qualidade do nosso serviço, desenvolvemos testes unitários, garantindo que nossa aplicação funciona, além de ser escalável e segura.
 
-# 🗂 Documentação da API
+### 🥥 FASE 2. Implementações individuais:
 
-## Requisito 06
+No âmbito do anúncio foram implementadas as principais funções para o gerenciamento do anúncio:
+
+- A possibilidade de CRIAR um anúncio;
+- A possibilidade de ATUALIZAR um anúncio;
+- A possibilidade de PESQUISAR um anúncio específico via ID;
+- A possibilidade de APAGAR um anúncio específico via ID;
+- A possibilidade de LISTAR todos os anúncios.
+
+# 📕 Requisito 06
+### 🍅 User Story
 Implementação do CRUD para gerenciamento dos anúncios.
 
-#### 1. Retorna todos os anúncios
+### Definições para os dois níveis do Requisito 6.
+#### 🥔 Nível 1: Base
+-[x] Readme descritivo.
+-[x] Documentação em PDF com formato de User Story fornecido.
+-[x] User Story com até 4 endpoints.
+-[x] Coleção de casos de testes do Postman para cada endpoint.
+-[x] Cobertura de teste entre 50% e 80%.
+
+#### 🍉 Nível 2: Bônus
+-[x] Todos os resultados do Nível 1 concluídos.
+-[x] Diagrama de Entidade-Relacionamento (DER) completo do Projeto Final.
+-[x] User Story com mais de 4 endpoints.
+-[x] Cobertura de teste superior a 80%.
+-[ ] Documentação por meio do Swagger.
+
+# 🗂 Documentação da API
+#### 🥚 1. Retorna todos os anúncios
 
 ```http
   GET /adsense
 ```
 
-#### 2. Retorna um anúncio específico com base no ID
+#### 🌶 2. Retorna um anúncio específico com base no ID
 
 ```http
   GET /adsense/{id}
@@ -45,7 +77,7 @@ Implementação do CRUD para gerenciamento dos anúncios.
 | `id`      | `Long` | **Obrigatório**. O ID do anúncio que você quer |
 
 
-#### 3. Cria o registro de um novo anúncio
+#### 🫐 3. Cria o registro de um novo anúncio
 
 ```http
   POST /adsense/insert
@@ -65,7 +97,7 @@ Implementação do CRUD para gerenciamento dos anúncios.
 }
 ```
 
-#### 4. Atualiza um anúncio específico com base no ID
+#### 🍒 4. Atualiza um anúncio específico com base no ID
 
 ```http
   PUT /adsense/{id}
@@ -86,7 +118,7 @@ Implementação do CRUD para gerenciamento dos anúncios.
 }
 ```
 
-#### 5. Apaga um anúncio específico com base no ID
+#### 🌽 5. Apaga um anúncio específico com base no ID
 
 ```http
   DELETE /adsense/{id}
@@ -128,20 +160,21 @@ Para isso, vá até a pasta ```/desafio_final/Testes_Relatorio_de_cobertura`` e 
 ![Diagrama ER](Requisito_6_-_Diagrama_de_entidade_e_relacionamento.png)
 # 👩🏻‍💻 < Devas /> 
 
+Este projeto teve por base o desenvolvimento em grupo totalizando 6 requisitos obrigatórios, sendo que do 1º ao 5º foram realizadas implementações em grupo e o 6º a implementação foi individual.
 #### Requisitos 1 ao 5 na branch ```main```
 
-- [@andherreraML](https://github.com/andherreraML)
+🍒 [@andherreraML](https://github.com/andherreraML)
 
-- [@BelAlbuquerque](https://github.com/BelAlbuquerque)
+🍒 [@BelAlbuquerque](https://github.com/BelAlbuquerque)
 
-- [@KarinaLimaMeli](https://github.com/KarinaLimaMeli)
+🍒 [@KarinaLimaMeli](https://github.com/KarinaLimaMeli)
 
-- [@lecastroMELI](https://github.com/lecastroMELI)
+🍒 [@lecastroMELI](https://github.com/lecastroMELI)
 
-- [@InajaraPereira](https://github.com/InajaraPereira)
+🍒 [@InajaraPereira](https://github.com/InajaraPereira)
 
-- [@sandiouriquemeli](https://github.com/sandiouriquemeli)
+🍒 [@sandiouriquemeli](https://github.com/sandiouriquemeli)
 
 #### Requisito 6 na branch ```feature/requisito-06-lecastro```
 
-- [@lecastroMELI](https://github.com/lecastroMELI)
+🍒 [@lecastroMELI](https://github.com/lecastroMELI)
