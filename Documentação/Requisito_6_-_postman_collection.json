@@ -1959,6 +1959,128 @@
 					]
 				},
 				{
+					"name": "readAdsenseById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_12}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"adsense",
+								"{{adsenseId_12}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Falha",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_1}}",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense",
+										"{{adsenseId_1}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:31:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"NotFound\",\n    \"status\": 404,\n    \"link\": \"https://http.cat/404\",\n    \"message\": \"Anúncio não cadastrado.\",\n    \"timestamp\": \"2022-08-15T12:31:40.039786\"\n}"
+						},
+						{
+							"name": "Exemplo - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_12}}",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense",
+										"{{adsenseId_12}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:32:06 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"seller\": {\n        \"id\": 6,\n        \"name\": \"Cássia Eller\"\n    },\n    \"product\": {\n        \"id\": 39,\n        \"name\": \"fraldinha\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    \"price\": 15.99\n}"
+						}
+					]
+				},
+				{
 					"name": "updateAdsense",
 					"request": {
 						"method": "PUT",
@@ -2293,12 +2415,12 @@
 					]
 				},
 				{
-					"name": "readAdsenseById",
+					"name": "findAll",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_12}}",
+							"raw": "http://127.0.0.1:8080/adsense",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -2308,68 +2430,18 @@
 							],
 							"port": "8080",
 							"path": [
-								"adsense",
-								"{{adsenseId_12}}"
+								"adsense"
 							]
 						}
 					},
 					"response": [
-						{
-							"name": "Exemplo - Falha",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_1}}",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "8080",
-									"path": [
-										"adsense",
-										"{{adsenseId_1}}"
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 15 Aug 2022 15:31:40 GMT"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=60"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"title\": \"NotFound\",\n    \"status\": 404,\n    \"link\": \"https://http.cat/404\",\n    \"message\": \"Anúncio não cadastrado.\",\n    \"timestamp\": \"2022-08-15T12:31:40.039786\"\n}"
-						},
 						{
 							"name": "Exemplo - Sucesso",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_12}}",
+									"raw": "http://127.0.0.1:8080/adsense",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -2379,8 +2451,7 @@
 									],
 									"port": "8080",
 									"path": [
-										"adsense",
-										"{{adsenseId_12}}"
+										"adsense"
 									]
 								}
 							},
@@ -2398,7 +2469,7 @@
 								},
 								{
 									"key": "Date",
-									"value": "Mon, 15 Aug 2022 15:32:06 GMT"
+									"value": "Mon, 15 Aug 2022 14:27:52 GMT"
 								},
 								{
 									"key": "Keep-Alive",
@@ -2410,7 +2481,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"seller\": {\n        \"id\": 6,\n        \"name\": \"Cássia Eller\"\n    },\n    \"product\": {\n        \"id\": 39,\n        \"name\": \"fraldinha\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    \"price\": 15.99\n}"
+							"body": "[\n    {\n        \"seller\": {\n            \"id\": 1,\n            \"name\": \"Mulher Maravilha\"\n        },\n        \"product\": {\n            \"id\": 1,\n            \"name\": \"rucula\",\n            \"volumen\": 0.1,\n            \"category\": \"FRESH\"\n        },\n        \"price\": 10.99\n    },\n    {\n        \"seller\": {\n            \"id\": 1,\n            \"name\": \"Mulher Maravilha\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 2,\n            \"name\": \"Raul\"\n        },\n        \"product\": {\n            \"id\": 2,\n            \"name\": \"mozzarela de bufala\",\n            \"volumen\": 0.5,\n            \"category\": \"REFRIGERATED\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 2,\n            \"name\": \"Raul\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 3,\n            \"name\": \"Bon Jovi\"\n        },\n        \"product\": {\n            \"id\": 3,\n            \"name\": \"pernil suino\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 3,\n            \"name\": \"Bon Jovi\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 4,\n            \"name\": \"Eddy\"\n        },\n        \"product\": {\n            \"id\": 4,\n            \"name\": \"alface\",\n            \"volumen\": 0.1,\n            \"category\": \"FRESH\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 4,\n            \"name\": \"Eddy\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 5,\n            \"name\": \"Nando Reis\"\n        },\n        \"product\": {\n            \"id\": 15,\n            \"name\": \"rabada\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 5,\n            \"name\": \"Nando Reis\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 6,\n            \"name\": \"Cássia Eller\"\n        },\n        \"product\": {\n            \"id\": 6,\n            \"name\": \"frango\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 6,\n            \"name\": \"Cássia Eller\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    }\n]"
 						}
 					]
 				}
