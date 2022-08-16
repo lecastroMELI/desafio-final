@@ -36,29 +36,6 @@ public class AdsenseService implements IAdsenseService {
     private SellerRepository sellerRepository;
 
     /**
-     * Nesse método estamos retornado/ consultando anúncio Id
-     * @param id
-     */
-    @Override
-    public Adsense findById(long id) {
-        return adsenseRepository.findById(id)
-            .orElseThrow(() -> { throw new NotFound("💢 Anúncio não cadastrado."); });
-    }
-
-    /**
-     * Nesse método consultamos uma lista de anúncios e retornamos lista caso existe,
-     * caso não exibimos uma mensagem de erro
-     */
-    @Override
-    public List<Adsense> findAll() {
-        List<Adsense> adsenses = adsenseRepository.findAll();
-
-        if (adsenses.size() == 0) throw new NotFound("💢 Lista de anúncios não encontrada");
-
-        return adsenses;
-    }
-
-    /**
      * Nesse método retornamos uma lista de anúncio filtrado por categoria
      * @param category
      */
@@ -72,8 +49,8 @@ public class AdsenseService implements IAdsenseService {
         if (adsenseList.isEmpty()) throw new NotFound("💢 Não existem anúncios com essa categoria");
 
         return adsenseList;
+        // TODO: Test caminho triste
     }
-    // TODO: Test caminho triste
 
     /**
      * Nesse método retornamos uma lista de anúncio filtrado por produtos e Id
@@ -123,6 +100,17 @@ public class AdsenseService implements IAdsenseService {
     }
 
     /**
+     * Método responsável realizar a busca do anúncio com base em seu ID.
+     * Retorna os dados do anúncio pesquisado, quando encontrado.
+     * @param id O ID do anúncio a ser pesquisado.
+     */
+    @Override
+    public Adsense findById(long id) {
+        return adsenseRepository.findById(id)
+            .orElseThrow(() -> { throw new NotFound("💢 Anúncio não cadastrado."); });
+    }
+
+    /**
      * Método responsável por atualizar um anúncio específico de um determinado vendedor.
      * Retorna alguns dados do anúncio atualizado.
      * @param adsenseId O ID do anúncio a ser pesquisado no banco.
@@ -151,17 +139,32 @@ public class AdsenseService implements IAdsenseService {
 
     /**
      * Método responsável por apagar um anúncio específico.
-     * @param id - ID do anúncio
+     * @param id ID do anúncio
      * @author Letícia Castro
      */
     @Override
     public void deleteAdsenseById(Long id) {
         Adsense adsense = findById(id);
+
         if (Objects.nonNull(adsense)) {
             adsenseRepository.deleteById(id);
         }
     }
+
+    /**
+     * Método responsável por retornar uma lista de anúncios.
+     * Retorna todos os anúncios quando encontrados.
+     */
+    @Override
+    public List<Adsense> findAll() {
+        List<Adsense> adsenses = adsenseRepository.findAll();
+
+        if (adsenses.size() == 0) throw new NotFound("💢 Lista de anúncios não encontrada");
+
+        return adsenses;
+    }
 }
+
 
 // TODO : ADSENSE: MELHORIAS: UPDATE SÓ É PERMITIDO SE NÃO HOUVE NENHUMA VENDA
 // TODO : ADSENSE: MELHORIAS: DELETE SÓ SER PERMITIDO SE O SELLER FOR O PROPRIETÁRIO

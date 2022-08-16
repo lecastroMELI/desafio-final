@@ -18,14 +18,6 @@ public class AdsenseController {
     private AdsenseService adsenseService;
 
     /**
-     * Nesse método retornamos uma lista de anúncios
-     */
-    @GetMapping
-    public ResponseEntity<List<AdsenseDto>> findAll() {
-        return ResponseEntity.ok(AdsenseDto.convertListDto(adsenseService.findAll()));
-    }
-
-    /**
      * Nesse método retornamos anúncio listado por categoria
      * @param querytype
      */
@@ -107,6 +99,15 @@ public class AdsenseController {
     public ResponseEntity<Void> deleteAdsense(@PathVariable Long adsenseId) {
         this.adsenseService.deleteAdsenseById(adsenseId);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+    /**
+     * Método responsável por retornar uma lista de anúncios.
+     * Retorna todos os anúncios quando encontrados.
+     */
+    @GetMapping
+    public ResponseEntity<List<AdsenseDto>> findAll() {
+        return ResponseEntity.ok(AdsenseDto.convertListDto(adsenseService.findAll()));
     }
 
 }
