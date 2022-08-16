@@ -46,26 +46,26 @@ Implementação do CRUD para gerenciamento dos anúncios.
 
 ### Definições para os dois níveis do Requisito 6.
 #### 🥑 Nível 1: Base
--[] Readme descritivo.
+- ☑️ Readme descritivo.
 
--[] Documentação em PDF com formato de User Story fornecido.
+- ☑️ Documentação em PDF com formato de User Story fornecido.
 
--[] User Story com até 4 endpoints.
+- ☑️ User Story com até 4 endpoints.
 
--[] Coleção de casos de testes do Postman para cada endpoint.
+- ☑️ Coleção de casos de testes do Postman para cada endpoint.
 
--[] Cobertura de teste entre 50% e 80%.
+- ☑️ Cobertura de teste entre 50% e 80%.
 
 #### 🍉 Nível 2: Bônus
--[] Todos os resultados do Nível 1 concluídos.
+- ☑️ Todos os resultados do Nível 1 concluídos.
 
--[] Diagrama de Entidade-Relacionamento (DER) completo do Projeto Final.
+- ☑️ Diagrama de Entidade-Relacionamento (DER) completo do Projeto Final.
 
--[] User Story com mais de 4 endpoints.
+- ☑️ User Story com mais de 4 endpoints.
 
--[] Cobertura de teste superior a 80%.
+- ☑️ Cobertura de teste superior a 80%.
 
--[] Documentação por meio do Swagger.
+- ⬜️ Documentação por meio do Swagger.
 
 # 🗂 Documentação
 ### Arquivos
