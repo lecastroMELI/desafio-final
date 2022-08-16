@@ -176,7 +176,7 @@ A seguir a visualização da cobertura geral dos testes com destaque para camada
 ![Cobertura geral de testes](Documentação/Testes_Relatorio_de_cobertura/cobertura.png)
 
 # 🆔 Diagrama de Entidade-Relacionamento
-![Diagrama ER](Documentação/Requisito_6_-_Diagrama_de_entidade_e_relacionamento.png)
+![Diagrama ER](Documentação/Requisito_6_-_DER.png)
 
 ## Implementações futuras / Melhorias
 
