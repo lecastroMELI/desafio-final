@@ -146,24 +146,36 @@ Implementação do CRUD para gerenciamento dos anúncios.
 
 ## ✅ Rodando localmente
 
-1. Clone o projeto
+1. Clone o projeto pelo seu terminal utilizando um dos comandos abaixo:
 
+**SSH**
 ```bash
   git clone git@github.com:lecastroMELI/desafio-final.git
 ```
+**HTTPS**
+```bash
+  git clone https://github.com/lecastroMELI/desafio-final.git
+```
 
-2. Abra a IDEA **IntelliJ** e no menu ```Run``` escolha ```Run...``` ```>```
-   ```DesafioFinalApplication``` ```>``` ```Run```
-3. Faça o download e execute no **MySQLWorkbench** o script [Requisito_6_-_Query_Popula_Banco.sql](Documentação/Requisito_6_-_Query_Popula_Banco.sql)
+2. Abra o projeto clonado pela IDEA **IntelliJ**.
+   
+3. Execute o comando abaixo para mudar para a branch específica deste requisito:
+```bash
+  git checkout feature/requisito-06-lecastro
+```
 
-4. Importe a coleção [Requisito_6_-_postman_collection.json](Documentação/Requisito_6_-_postman_collection.json) para o **Postman**
+4. No menu do IntelliJ, para rodar a aplicação, vá em ```Run``` escolha ```Run...``` ```>``` ```DesafioFinalApplication``` ```>``` ```Run```
 
-5. Realize os testes manuais utilizando as rotas importadas no Postman
+5. Execute no **MySQLWorkbench** o script [Requisito_6_-_Query_Popula_Banco.sql](Documentação/Requisito_6_-_Query_Popula_Banco.sql) (localizado na pasta Documentação)
+
+6. Importe no **Postman** a coleção de rotas [Requisito_6_-_postman_collection.json](Documentação/Requisito_6_-_postman_collection.json) (localizada na pasta Documentação)
+
+7. Realize os testes manuais utilizando as rotas importadas no Postman.
 
 ## 💻 Rodando os testes
 
 Para rodar os testes, no IntelliJ, no menu ```Run``` escolha ```Run...``` ```>``` 
-```br.com.meli.desafio_final``` ```>``` ```Cover```
+```br.com.meli.desafio_final``` ```>``` ```Cover```.
 
 ## 📊 Relatório de Cobertura de Testes
 
