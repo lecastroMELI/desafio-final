@@ -1,0 +1,2537 @@
+{
+	"info": {
+		"_postman_id": "c777c24e-5fc4-4904-ba4a-3a84be592dda",
+		"name": "Desafio 3 - Projeto Integrador",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21755847"
+	},
+	"item": [
+		{
+			"name": "Adsense",
+			"item": [
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/adsense",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"adsense"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 14:27:52 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"seller\": {\n            \"id\": 1,\n            \"name\": \"Mulher Maravilha\"\n        },\n        \"product\": {\n            \"id\": 1,\n            \"name\": \"rucula\",\n            \"volumen\": 0.1,\n            \"category\": \"FRESH\"\n        },\n        \"price\": 10.99\n    },\n    {\n        \"seller\": {\n            \"id\": 1,\n            \"name\": \"Mulher Maravilha\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 2,\n            \"name\": \"Raul\"\n        },\n        \"product\": {\n            \"id\": 2,\n            \"name\": \"mozzarela de bufala\",\n            \"volumen\": 0.5,\n            \"category\": \"REFRIGERATED\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 2,\n            \"name\": \"Raul\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 3,\n            \"name\": \"Bon Jovi\"\n        },\n        \"product\": {\n            \"id\": 3,\n            \"name\": \"pernil suino\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 3,\n            \"name\": \"Bon Jovi\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 4,\n            \"name\": \"Eddy\"\n        },\n        \"product\": {\n            \"id\": 4,\n            \"name\": \"alface\",\n            \"volumen\": 0.1,\n            \"category\": \"FRESH\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 4,\n            \"name\": \"Eddy\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 5,\n            \"name\": \"Nando Reis\"\n        },\n        \"product\": {\n            \"id\": 15,\n            \"name\": \"rabada\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 5,\n            \"name\": \"Nando Reis\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 6,\n            \"name\": \"Cássia Eller\"\n        },\n        \"product\": {\n            \"id\": 6,\n            \"name\": \"frango\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 6,\n            \"name\": \"Cássia Eller\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "findByCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/adsense/list?querytype=FROZEN",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"adsense",
+								"list"
+							],
+							"query": [
+								{
+									"key": "querytype",
+									"value": "FRESH",
+									"description": "Listar todos os anúncios da categoria FRECOS",
+									"disabled": true
+								},
+								{
+									"key": "querytype",
+									"value": "REFRIGERATED",
+									"description": "Listar todos os anúncios da categoria REFRIGERADOS",
+									"disabled": true
+								},
+								{
+									"key": "querytype",
+									"value": "FROZEN",
+									"description": "Listar todos os anúncios da categoria FROZEN"
+								},
+								{
+									"key": "querytype",
+									"value": "INVALIDA",
+									"description": "Categoria inválida",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense/list?querytype=FROZEN",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense",
+										"list"
+									],
+									"query": [
+										{
+											"key": "querytype",
+											"value": "FRESH",
+											"description": "Listar todos os produtos FRECOS",
+											"disabled": true
+										},
+										{
+											"key": "querytype",
+											"value": "REFRIGERATED",
+											"description": "Listar todos os produtos REFRIGERADOS",
+											"disabled": true
+										},
+										{
+											"key": "querytype",
+											"value": "FROZEN",
+											"description": "Listar todos os produtos CONGELADOS"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 14:30:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"seller\": {\n            \"id\": 1,\n            \"name\": \"Mulher Maravilha\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 2,\n            \"name\": \"Raul\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 3,\n            \"name\": \"Bon Jovi\"\n        },\n        \"product\": {\n            \"id\": 3,\n            \"name\": \"pernil suino\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 3,\n            \"name\": \"Bon Jovi\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 4,\n            \"name\": \"Eddy\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 5,\n            \"name\": \"Nando Reis\"\n        },\n        \"product\": {\n            \"id\": 15,\n            \"name\": \"rabada\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 5,\n            \"name\": \"Nando Reis\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 6,\n            \"name\": \"Cássia Eller\"\n        },\n        \"product\": {\n            \"id\": 6,\n            \"name\": \"frango\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 6,\n            \"name\": \"Cássia Eller\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    }\n]"
+						},
+						{
+							"name": "Exemplo - Falha",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense/list?querytype=INVALIDA",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense",
+										"list"
+									],
+									"query": [
+										{
+											"key": "querytype",
+											"value": "FRESH",
+											"description": "Listar todos os anúncios da categoria FRECOS",
+											"disabled": true
+										},
+										{
+											"key": "querytype",
+											"value": "REFRIGERATED",
+											"description": "Listar todos os anúncios da categoria REFRIGERADOS",
+											"disabled": true
+										},
+										{
+											"key": "querytype",
+											"value": "FROZEN",
+											"description": "Listar todos os anúncios da categoria FROZEN",
+											"disabled": true
+										},
+										{
+											"key": "querytype",
+											"value": "INVALIDA",
+											"description": "Categoria inválida"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 14:32:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "getByAdsenseByWarehouse",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/adsense/warehouse/{{adsenseId_1}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"adsense",
+								"warehouse",
+								"{{adsenseId_1}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Falha - Quando anúncio ainda não foi vinculado a um armazém",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense/warehouse/{{adsenseId_1}}",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense",
+										"warehouse",
+										"{{adsenseId_1}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 14:35:25 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[]"
+						},
+						{
+							"name": "Exemplo - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense/warehouse/7",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense",
+										"warehouse",
+										"7"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 17:41:50 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"quantity\": 450,\n        \"warehouse_id\": 1\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Batch",
+			"item": [
+				{
+					"name": "findAllByAdsenseId*",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/batch/{{adsenseId_1}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"batch",
+								"{{adsenseId_1}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAdsenseBySectionAndDueDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/batch/due-date?sectionId=1&numberOfDays=25",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"batch",
+								"due-date"
+							],
+							"query": [
+								{
+									"key": "sectionId",
+									"value": "1"
+								},
+								{
+									"key": "numberOfDays",
+									"value": "25"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/batch/due-date?sectionId=1&numberOfDays=25",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"batch",
+										"due-date"
+									],
+									"query": [
+										{
+											"key": "sectionId",
+											"value": "1"
+										},
+										{
+											"key": "numberOfDays",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 17:55:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"batchNumber\": 2,\n        \"adsenseId\": 7,\n        \"quantity\": 450,\n        \"dueDate\": \"2022-09-04\"\n    },\n    {\n        \"batchNumber\": 3,\n        \"adsenseId\": 1,\n        \"quantity\": 10,\n        \"dueDate\": \"2022-09-04\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "findAdsenseByDueDateAndCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/batch/due-date/list?numberOfDays=25&category=FRESH&order=ASC",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"batch",
+								"due-date",
+								"list"
+							],
+							"query": [
+								{
+									"key": "numberOfDays",
+									"value": "25",
+									"description": "Número de dias"
+								},
+								{
+									"key": "category",
+									"value": "FRESH",
+									"description": "Categoria"
+								},
+								{
+									"key": "order",
+									"value": "ASC",
+									"description": "Ordernação crescente pela quantidade"
+								},
+								{
+									"key": "order",
+									"value": "DESC",
+									"description": "Ordernação decrescente pela quantidade",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Sucesso - Order Asc",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/batch/due-date/list?numberOfDays=25&category=FRESH&order=ASC",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"batch",
+										"due-date",
+										"list"
+									],
+									"query": [
+										{
+											"key": "numberOfDays",
+											"value": "25",
+											"description": "Número de dias"
+										},
+										{
+											"key": "category",
+											"value": "FRESH",
+											"description": "Categoria"
+										},
+										{
+											"key": "order",
+											"value": "ASC",
+											"description": "Ordernação crescente pela quantidade"
+										},
+										{
+											"key": "order",
+											"value": "DESC",
+											"description": "Ordernação decrescente pela quantidade",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 17:56:43 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"batchNumber\": 3,\n        \"adsenseId\": 1,\n        \"quantity\": 10,\n        \"dueDate\": \"2022-09-04\",\n        \"category\": \"FRESH\",\n        \"sectionId\": 1\n    },\n    {\n        \"batchNumber\": 2,\n        \"adsenseId\": 7,\n        \"quantity\": 450,\n        \"dueDate\": \"2022-09-04\",\n        \"category\": \"FRESH\",\n        \"sectionId\": 1\n    }\n]"
+						},
+						{
+							"name": "Exemplo - Sucesso - Order Desc",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/batch/due-date/list?numberOfDays=25&category=FRESH&order=DESC",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"batch",
+										"due-date",
+										"list"
+									],
+									"query": [
+										{
+											"key": "numberOfDays",
+											"value": "25",
+											"description": "Número de dias"
+										},
+										{
+											"key": "category",
+											"value": "FRESH",
+											"description": "Categoria"
+										},
+										{
+											"key": "order",
+											"value": "ASC",
+											"description": "Ordernação crescente pela quantidade",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "DESC",
+											"description": "Ordernação decrescente pela quantidade"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 17:57:17 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"batchNumber\": 2,\n        \"adsenseId\": 7,\n        \"quantity\": 450,\n        \"dueDate\": \"2022-09-04\",\n        \"category\": \"FRESH\",\n        \"sectionId\": 1\n    },\n    {\n        \"batchNumber\": 3,\n        \"adsenseId\": 1,\n        \"quantity\": 10,\n        \"dueDate\": \"2022-09-04\",\n        \"category\": \"FRESH\",\n        \"sectionId\": 1\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Inbound Order",
+			"item": [
+				{
+					"name": "createInBoundOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"section\": {\n\t\t\"id\": 1,\n\t\t\"warehouseCode\": 1\n\t},\n\t\"batchStock\": [\n\t\t{\n\t\t\t\"batchNumber\": 1,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 1\n\t\t\t},\n\t\t\t\"currentTemperature\": 20,\n\t\t\t\"minimumTemperature\": 10,\n\t\t\t\"initialQuantity\": 10,\n\t\t\t\"currentQuantity\": 10,\n\t\t\t\"manufacturingDate\": \"2022-08-01\",\n\t\t\t\"manufacturingTime\": \"2022-08-01T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t},\n\t\t{\n\t\t\t\"batchNumber\": 2,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 7\n\t\t\t},\n\t\t\t\"currentTemperature\": 15,\n\t\t\t\"minimumTemperature\": 5,\n\t\t\t\"initialQuantity\": 45,\n\t\t\t\"currentQuantity\": 45,\n\t\t\t\"manufacturingDate\": \"2022-08-10\",\n\t\t\t\"manufacturingTime\": \"2022-08-10T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/inboundorder/{{agentId_1}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"inboundorder",
+								"{{agentId_1}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Falha",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"section\": {\n\t\t\"id\": 1,\n\t\t\"warehouseCode\": 1\n\t},\n\t\"batchStock\": [\n\t\t{\n\t\t\t\"batchNumber\": 1,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 1\n\t\t\t},\n\t\t\t\"currentTemperature\": 20,\n\t\t\t\"minimumTemperature\": 10,\n\t\t\t\"initialQuantity\": 10,\n\t\t\t\"currentQuantity\": 10,\n\t\t\t\"manufacturingDate\": \"2022-08-01\",\n\t\t\t\"manufacturingTime\": \"2022-08-01T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t},\n\t\t{\n\t\t\t\"batchNumber\": 2,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 4\n\t\t\t},\n\t\t\t\"currentTemperature\": 15,\n\t\t\t\"minimumTemperature\": 5,\n\t\t\t\"initialQuantity\": 45,\n\t\t\t\"currentQuantity\": 45,\n\t\t\t\"manufacturingDate\": \"2022-08-10\",\n\t\t\t\"manufacturingTime\": \"2022-08-10T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t}\n\t]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/inboundorder/{{agentId_1}}",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"inboundorder",
+										"{{agentId_1}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 14:44:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"Bad Request\",\n    \"status\": 400,\n    \"link\": \"https://http.cat/400\",\n    \"message\": \"Produto não pertence a esse setor.\",\n    \"timestamp\": \"2022-08-15T11:44:50.426409\"\n}"
+						},
+						{
+							"name": "Exemplo - Sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"section\": {\n\t\t\"id\": 1,\n\t\t\"warehouseCode\": 1\n\t},\n\t\"batchStock\": [\n\t\t{\n\t\t\t\"batchNumber\": 1,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 1\n\t\t\t},\n\t\t\t\"currentTemperature\": 20,\n\t\t\t\"minimumTemperature\": 10,\n\t\t\t\"initialQuantity\": 10,\n\t\t\t\"currentQuantity\": 10,\n\t\t\t\"manufacturingDate\": \"2022-08-01\",\n\t\t\t\"manufacturingTime\": \"2022-08-01T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t},\n\t\t{\n\t\t\t\"batchNumber\": 2,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 7\n\t\t\t},\n\t\t\t\"currentTemperature\": 15,\n\t\t\t\"minimumTemperature\": 5,\n\t\t\t\"initialQuantity\": 45,\n\t\t\t\"currentQuantity\": 45,\n\t\t\t\"manufacturingDate\": \"2022-08-10\",\n\t\t\t\"manufacturingTime\": \"2022-08-10T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t}\n\t]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/inboundorder/{{agentId_1}}",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"inboundorder",
+										"{{agentId_1}}"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 14:46:45 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"batchNumber\": 1,\n        \"adsense_id\": 1,\n        \"currentTemperature\": 20,\n        \"minimumTemperature\": 10,\n        \"initialQuantity\": 10,\n        \"currentQuantity\": 10,\n        \"manufacturingDate\": \"2022-08-01\",\n        \"manufacturingTime\": \"2022-08-01T10:15:30\",\n        \"dueDate\": \"2022-09-05\"\n    },\n    {\n        \"batchNumber\": 2,\n        \"adsense_id\": 7,\n        \"currentTemperature\": 15,\n        \"minimumTemperature\": 5,\n        \"initialQuantity\": 45,\n        \"currentQuantity\": 45,\n        \"manufacturingDate\": \"2022-08-10\",\n        \"manufacturingTime\": \"2022-08-10T10:15:30\",\n        \"dueDate\": \"2022-09-05\"\n    }\n]"
+						},
+						{
+							"name": "Exemplo - Falha - Produto já cadastrado",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"section\": {\n\t\t\"id\": 1,\n\t\t\"warehouseCode\": 1\n\t},\n\t\"batchStock\": [\n\t\t{\n\t\t\t\"batchNumber\": 1,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 1\n\t\t\t},\n\t\t\t\"currentTemperature\": 20,\n\t\t\t\"minimumTemperature\": 10,\n\t\t\t\"initialQuantity\": 10,\n\t\t\t\"currentQuantity\": 10,\n\t\t\t\"manufacturingDate\": \"2022-08-01\",\n\t\t\t\"manufacturingTime\": \"2022-08-01T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t},\n\t\t{\n\t\t\t\"batchNumber\": 2,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 7\n\t\t\t},\n\t\t\t\"currentTemperature\": 15,\n\t\t\t\"minimumTemperature\": 5,\n\t\t\t\"initialQuantity\": 45,\n\t\t\t\"currentQuantity\": 45,\n\t\t\t\"manufacturingDate\": \"2022-08-10\",\n\t\t\t\"manufacturingTime\": \"2022-08-10T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t}\n\t]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/inboundorder/{{agentId_1}}",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"inboundorder",
+										"{{agentId_1}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 14:47:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"NotFound\",\n    \"status\": 404,\n    \"link\": \"https://http.cat/404\",\n    \"message\": \"Produto deste usuário já está cadastrado.\",\n    \"timestamp\": \"2022-08-15T11:47:44.239056\"\n}"
+						},
+						{
+							"name": "Exemplo - Falha - Anúncio não cadastrado",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"section\": {\n\t\t\"id\": 1,\n\t\t\"warehouseCode\": 1\n\t},\n\t\"batchStock\": [\n\t\t{\n\t\t\t\"batchNumber\": 1,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 1\n\t\t\t},\n\t\t\t\"currentTemperature\": 20,\n\t\t\t\"minimumTemperature\": 10,\n\t\t\t\"initialQuantity\": 10,\n\t\t\t\"currentQuantity\": 10,\n\t\t\t\"manufacturingDate\": \"2022-08-01\",\n\t\t\t\"manufacturingTime\": \"2022-08-01T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t},\n\t\t{\n\t\t\t\"batchNumber\": 2,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 7\n\t\t\t},\n\t\t\t\"currentTemperature\": 15,\n\t\t\t\"minimumTemperature\": 5,\n\t\t\t\"initialQuantity\": 45,\n\t\t\t\"currentQuantity\": 45,\n\t\t\t\"manufacturingDate\": \"2022-08-10\",\n\t\t\t\"manufacturingTime\": \"2022-08-10T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t}\n\t]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/inboundorder/{{agentId_1}}",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"inboundorder",
+										"{{agentId_1}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 17:47:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"NotFound\",\n    \"status\": 404,\n    \"link\": \"https://http.cat/404\",\n    \"message\": \"💢 Anúncio não cadastrado.\",\n    \"timestamp\": \"2022-08-15T14:47:16.925664\"\n}"
+						}
+					]
+				},
+				{
+					"name": "updateInBoundOrder",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 1,\n\t\"section\": {\n\t\t\"id\": 1,\n\t\t\"warehouseCode\": 1\n\t},\n\t\"batchStock\": [\n\t\t{\n\t\t\t\"batchNumber\": 1,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 1\n\t\t\t},\n\t\t\t\"currentTemperature\": 20,\n\t\t\t\"minimumTemperature\": 10,\n\t\t\t\"initialQuantity\": 1000,\n\t\t\t\"currentQuantity\": 1000,\n\t\t\t\"manufacturingDate\": \"2022-08-01\",\n\t\t\t\"manufacturingTime\": \"2022-08-01T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t},\n\t\t{\n\t\t\t\"batchNumber\": 2,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 7\n\t\t\t},\n\t\t\t\"currentTemperature\": 15,\n\t\t\t\"minimumTemperature\": 5,\n\t\t\t\"initialQuantity\": 450,\n\t\t\t\"currentQuantity\": 450,\n\t\t\t\"manufacturingDate\": \"2022-08-10\",\n\t\t\t\"manufacturingTime\": \"2022-08-10T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/inboundorder/{{agentId_1}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"inboundorder",
+								"{{agentId_1}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Sucesso - Atualizando as quantidades dos lotes",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": 1,\n\t\"section\": {\n\t\t\"id\": 1,\n\t\t\"warehouseCode\": 1\n\t},\n\t\"batchStock\": [\n\t\t{\n\t\t\t\"batchNumber\": 1,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 1\n\t\t\t},\n\t\t\t\"currentTemperature\": 20,\n\t\t\t\"minimumTemperature\": 10,\n\t\t\t\"initialQuantity\": 1000,\n\t\t\t\"currentQuantity\": 1000,\n\t\t\t\"manufacturingDate\": \"2022-08-01\",\n\t\t\t\"manufacturingTime\": \"2022-08-01T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t},\n\t\t{\n\t\t\t\"batchNumber\": 2,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 7\n\t\t\t},\n\t\t\t\"currentTemperature\": 15,\n\t\t\t\"minimumTemperature\": 5,\n\t\t\t\"initialQuantity\": 450,\n\t\t\t\"currentQuantity\": 450,\n\t\t\t\"manufacturingDate\": \"2022-08-10\",\n\t\t\t\"manufacturingTime\": \"2022-08-10T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t}\n\t]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/inboundorder/{{agentId_1}}",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"inboundorder",
+										"{{agentId_1}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 14:54:10 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"batchNumber\": 1,\n        \"adsense_id\": 1,\n        \"currentTemperature\": 20,\n        \"minimumTemperature\": 10,\n        \"initialQuantity\": 1010,\n        \"currentQuantity\": 1000,\n        \"manufacturingDate\": \"2022-08-01\",\n        \"manufacturingTime\": \"2022-08-01T10:15:30\",\n        \"dueDate\": \"2022-09-05\"\n    },\n    {\n        \"batchNumber\": 2,\n        \"adsense_id\": 7,\n        \"currentTemperature\": 15,\n        \"minimumTemperature\": 5,\n        \"initialQuantity\": 495,\n        \"currentQuantity\": 450,\n        \"manufacturingDate\": \"2022-08-10\",\n        \"manufacturingTime\": \"2022-08-10T10:15:30\",\n        \"dueDate\": \"2022-09-05\"\n    }\n]"
+						},
+						{
+							"name": "Exemplo - Falha - produto VS setor",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": 1,\n\t\"section\": {\n\t\t\"id\": 2,\n\t\t\"warehouseCode\": 1\n\t},\n\t\"batchStock\": [\n\t\t{\n\t\t\t\"batchNumber\": 1,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 1\n\t\t\t},\n\t\t\t\"currentTemperature\": 20,\n\t\t\t\"minimumTemperature\": 10,\n\t\t\t\"initialQuantity\": 1000,\n\t\t\t\"currentQuantity\": 1000,\n\t\t\t\"manufacturingDate\": \"2022-08-01\",\n\t\t\t\"manufacturingTime\": \"2022-08-01T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t},\n\t\t{\n\t\t\t\"batchNumber\": 2,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 7\n\t\t\t},\n\t\t\t\"currentTemperature\": 15,\n\t\t\t\"minimumTemperature\": 5,\n\t\t\t\"initialQuantity\": 450,\n\t\t\t\"currentQuantity\": 450,\n\t\t\t\"manufacturingDate\": \"2022-08-10\",\n\t\t\t\"manufacturingTime\": \"2022-08-10T10:15:30\",\n\t\t\t\"dueDate\": \"2022-09-05\"\n\t\t}\n\t]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/inboundorder/{{agentId_1}}",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"inboundorder",
+										"{{agentId_1}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 14:55:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"Bad Request\",\n    \"status\": 400,\n    \"link\": \"https://http.cat/400\",\n    \"message\": \"Produto não pertence a esse setor.\",\n    \"timestamp\": \"2022-08-15T11:55:24.337822\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/product",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/product",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:09:30 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"rucula\",\n        \"volumen\": 0.1,\n        \"category\": \"FRESH\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"mozzarela de bufala\",\n        \"volumen\": 0.5,\n        \"category\": \"REFRIGERATED\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"pernil suino\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"alface\",\n        \"volumen\": 0.1,\n        \"category\": \"FRESH\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"queijo do reino\",\n        \"volumen\": 0.5,\n        \"category\": \"REFRIGERATED\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"frango\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"agrião\",\n        \"volumen\": 0.1,\n        \"category\": \"FRESH\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"queijo parmesão\",\n        \"volumen\": 0.5,\n        \"category\": \"REFRIGERATED\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"coxão mole\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"catalonia\",\n        \"volumen\": 0.1,\n        \"category\": \"FRESH\"\n    },\n    {\n        \"id\": 11,\n        \"name\": \"mortadela\",\n        \"volumen\": 0.5,\n        \"category\": \"REFRIGERATED\"\n    },\n    {\n        \"id\": 12,\n        \"name\": \"bisteca suína\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 13,\n        \"name\": \"espinafre\",\n        \"volumen\": 0.1,\n        \"category\": \"FRESH\"\n    },\n    {\n        \"id\": 14,\n        \"name\": \"presunto parma\",\n        \"volumen\": 0.5,\n        \"category\": \"REFRIGERATED\"\n    },\n    {\n        \"id\": 15,\n        \"name\": \"rabada\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 16,\n        \"name\": \"alecrim\",\n        \"volumen\": 0.1,\n        \"category\": \"FRESH\"\n    },\n    {\n        \"id\": 17,\n        \"name\": \"quejo prato\",\n        \"volumen\": 0.5,\n        \"category\": \"REFRIGERATED\"\n    },\n    {\n        \"id\": 18,\n        \"name\": \"costela bovina\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 19,\n        \"name\": \"manjericão\",\n        \"volumen\": 0.1,\n        \"category\": \"FRESH\"\n    },\n    {\n        \"id\": 20,\n        \"name\": \"azeitona\",\n        \"volumen\": 0.5,\n        \"category\": \"REFRIGERATED\"\n    },\n    {\n        \"id\": 21,\n        \"name\": \"lombinho\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 22,\n        \"name\": \"acelga\",\n        \"volumen\": 0.1,\n        \"category\": \"FRESH\"\n    },\n    {\n        \"id\": 23,\n        \"name\": \"champingnon\",\n        \"volumen\": 0.5,\n        \"category\": \"REFRIGERATED\"\n    },\n    {\n        \"id\": 24,\n        \"name\": \"picanha\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 25,\n        \"name\": \"brócolis\",\n        \"volumen\": 0.1,\n        \"category\": \"FRESH\"\n    },\n    {\n        \"id\": 26,\n        \"name\": \"presunto\",\n        \"volumen\": 0.5,\n        \"category\": \"REFRIGERATED\"\n    },\n    {\n        \"id\": 27,\n        \"name\": \"alcatra\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 28,\n        \"name\": \"couve flor\",\n        \"volumen\": 0.1,\n        \"category\": \"FRESH\"\n    },\n    {\n        \"id\": 29,\n        \"name\": \"cheddar\",\n        \"volumen\": 0.5,\n        \"category\": \"REFRIGERATED\"\n    },\n    {\n        \"id\": 30,\n        \"name\": \"patinho\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 31,\n        \"name\": \"hortelã\",\n        \"volumen\": 0.1,\n        \"category\": \"FRESH\"\n    },\n    {\n        \"id\": 32,\n        \"name\": \"requeijão\",\n        \"volumen\": 0.5,\n        \"category\": \"REFRIGERATED\"\n    },\n    {\n        \"id\": 33,\n        \"name\": \"lagarto\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 34,\n        \"name\": \"estragão francês\",\n        \"volumen\": 0.1,\n        \"category\": \"FRESH\"\n    },\n    {\n        \"id\": 35,\n        \"name\": \"iogurte\",\n        \"volumen\": 0.5,\n        \"category\": \"REFRIGERATED\"\n    },\n    {\n        \"id\": 36,\n        \"name\": \"paleta\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 37,\n        \"name\": \"orégano\",\n        \"volumen\": 0.1,\n        \"category\": \"FRESH\"\n    },\n    {\n        \"id\": 38,\n        \"name\": \"queijo brie\",\n        \"volumen\": 0.5,\n        \"category\": \"REFRIGERATED\"\n    },\n    {\n        \"id\": 39,\n        \"name\": \"fraldinha\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "getByCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/product/list?querytype=FROZEN",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"list"
+							],
+							"query": [
+								{
+									"key": "querytype",
+									"value": "FROZEN",
+									"description": "Listar todos os produtos da categoria FROZEN"
+								},
+								{
+									"key": "querytype",
+									"value": "INVALIDA",
+									"description": "Categoria inválida",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/product/list?querytype=FROZEN",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"list"
+									],
+									"query": [
+										{
+											"key": "querytype",
+											"value": "FROZEN"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:10:03 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"name\": \"pernil suino\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"frango\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"coxão mole\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 12,\n        \"name\": \"bisteca suína\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 15,\n        \"name\": \"rabada\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 18,\n        \"name\": \"costela bovina\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 21,\n        \"name\": \"lombinho\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 24,\n        \"name\": \"picanha\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 27,\n        \"name\": \"alcatra\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 30,\n        \"name\": \"patinho\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 33,\n        \"name\": \"lagarto\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 36,\n        \"name\": \"paleta\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    {\n        \"id\": 39,\n        \"name\": \"fraldinha\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    }\n]"
+						},
+						{
+							"name": "Exemplo - Falha",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/product/list?querytype=INVALIDA",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"list"
+									],
+									"query": [
+										{
+											"key": "querytype",
+											"value": "FROZEN",
+											"disabled": true
+										},
+										{
+											"key": "querytype",
+											"value": "INVALIDA"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:10:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "findBatchByProduct",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/product/sortlist?productId=1&s=L",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"sortlist"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "1"
+								},
+								{
+									"key": "s",
+									"value": "L"
+								},
+								{
+									"key": "s",
+									"value": "Q",
+									"disabled": true
+								},
+								{
+									"key": "s",
+									"value": "V",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/product/sortlist?productId=1&s=L",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"product",
+										"sortlist"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "1"
+										},
+										{
+											"key": "s",
+											"value": "L"
+										},
+										{
+											"key": "s",
+											"value": "Q",
+											"disabled": true
+										},
+										{
+											"key": "s",
+											"value": "V",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:14:25 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"sectionId\": 1,\n    \"warehouseId\": 1,\n    \"productId\": 1,\n    \"batchStock\": []\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Purchase Order",
+			"item": [
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\": \"OPEN\",\n\t\"date\": \"2022-08-15\",\n\t\"buyer\": {\n\t\t\"id\": 1\n\t},\n\t\"itemList\": [\n\t\t{\n\t\t\t\"currentPrice\": 0.50,\n\t\t\t\"quantity\": 2000,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 5\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"currentPrice\": 0.80,\n\t\t\t\"quantity\": 700,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 3\n\t\t\t}\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/purchase_order/save_order",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"purchase_order",
+								"save_order"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"status\": \"OPEN\",\n\t\"date\": \"2022-08-15\",\n\t\"buyer\": {\n\t\t\"id\": 1\n\t},\n\t\"itemList\": [\n\t\t{\n\t\t\t\"currentPrice\": 0.50,\n\t\t\t\"quantity\": 2000,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 5\n\t\t\t}\n\t\t},\n\t\t{\n\t\t\t\"currentPrice\": 0.80,\n\t\t\t\"quantity\": 700,\n\t\t\t\"adsense\": {\n\t\t\t\t\"id\": 3\n\t\t\t}\n\t\t}\n\t]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/purchase_order/save_order",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"purchase_order",
+										"save_order"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:19:52 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "1560"
+						}
+					]
+				},
+				{
+					"name": "findAdsensesByPurchaseOrderId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/purchase_order/{{orderId_1}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"purchase_order",
+								"{{orderId_1}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplos - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/purchase_order/{{orderId_1}}",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"purchase_order",
+										"{{orderId_1}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:20:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"seller\": {\n            \"id\": 3,\n            \"name\": \"Bon Jovi\"\n        },\n        \"product\": {\n            \"id\": 3,\n            \"name\": \"pernil suino\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 2,\n            \"name\": \"Raul\"\n        },\n        \"product\": {\n            \"id\": 2,\n            \"name\": \"mozzarela de bufala\",\n            \"volumen\": 0.5,\n            \"category\": \"REFRIGERATED\"\n        },\n        \"price\": 15.99\n    }\n]"
+						},
+						{
+							"name": "Exemplo - Falha",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/purchase_order/50",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"purchase_order",
+										"50"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:21:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"NotFound\",\n    \"status\": 404,\n    \"link\": \"https://http.cat/404\",\n    \"message\": \"Item não encontrado!\",\n    \"timestamp\": \"2022-08-15T12:21:13.841389\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Finaliza compra",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/purchase_order/update_order?purchaseOrderId=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"purchase_order",
+								"update_order"
+							],
+							"query": [
+								{
+									"key": "purchaseOrderId",
+									"value": "1",
+									"description": "ID da ordem"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Sucesso - finaliza a ordem",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/purchase_order/update_order?purchaseOrderId=1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"purchase_order",
+										"update_order"
+									],
+									"query": [
+										{
+											"key": "purchaseOrderId",
+											"value": "1",
+											"description": "ID da ordem"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:24:02 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"status\": \"FINISHED\"\n}"
+						},
+						{
+							"name": "Exemplo - Falha",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/purchase_order/update_order?purchaseOrderId=50",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"purchase_order",
+										"update_order"
+									],
+									"query": [
+										{
+											"key": "purchaseOrderId",
+											"value": "50",
+											"description": "ID da ordem"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:24:37 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"NotFound\",\n    \"status\": 404,\n    \"link\": \"https://http.cat/404\",\n    \"message\": \"Pedido inexistente\",\n    \"timestamp\": \"2022-08-15T12:24:37.532918\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Requisito 06",
+			"item": [
+				{
+					"name": "createAdsense",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"seller\": {\n\t\t\"id\": 1\n\t},\n\t\"product\": {\n\t\t\"id\": 19\n\t},\n\t\"price\": 1919.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/adsense/insert",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"adsense",
+								"insert"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Sucesso",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"seller\": {\n\t\t\"id\": 1\n\t},\n\t\"product\": {\n\t\t\"id\": 19\n\t},\n\t\"price\": 1919.00\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense/insert",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense",
+										"insert"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:26:22 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"adsenseId\": 13,\n    \"price\": 1919,\n    \"seller\": {\n        \"id\": 1,\n        \"name\": \"Mulher Maravilha\"\n    },\n    \"product\": {\n        \"id\": 19,\n        \"name\": \"manjericão\",\n        \"volumen\": 0.1,\n        \"category\": \"FRESH\"\n    }\n}"
+						},
+						{
+							"name": "Exemplo - Falha",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": 1,\n\t\"seller\": {\n\t\t\"id\": 1\n\t},\n\t\"product\": {\n\t\t\"id\": 19\n\t},\n\t\"price\": 1919.00\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense/insert",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense",
+										"insert"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:26:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"Bad Request\",\n    \"status\": 400,\n    \"link\": \"https://http.cat/400\",\n    \"message\": \"⚠️ O anúncio não pode conter um ID.\",\n    \"timestamp\": \"2022-08-15T12:26:58.758898\"\n}"
+						}
+					]
+				},
+				{
+					"name": "readAdsenseById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_12}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"adsense",
+								"{{adsenseId_12}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Falha",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_1}}",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense",
+										"{{adsenseId_1}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:31:40 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"NotFound\",\n    \"status\": 404,\n    \"link\": \"https://http.cat/404\",\n    \"message\": \"Anúncio não cadastrado.\",\n    \"timestamp\": \"2022-08-15T12:31:40.039786\"\n}"
+						},
+						{
+							"name": "Exemplo - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_12}}",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense",
+										"{{adsenseId_12}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:32:06 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"seller\": {\n        \"id\": 6,\n        \"name\": \"Cássia Eller\"\n    },\n    \"product\": {\n        \"id\": 39,\n        \"name\": \"fraldinha\",\n        \"volumen\": 0.6,\n        \"category\": \"FROZEN\"\n    },\n    \"price\": 15.99\n}"
+						}
+					]
+				},
+				{
+					"name": "updateAdsense",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"product\": {\n\t\t\"id\": 19\n\t},\n\t\"price\": 19.19\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_1}}?sellerId=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"adsense",
+								"{{adsenseId_1}}"
+							],
+							"query": [
+								{
+									"key": "sellerId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Sucesso",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"product\": {\n\t\t\"id\": 19\n\t},\n\t\"price\": 19.19\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_1}}?sellerId=1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense",
+										"{{adsenseId_1}}"
+									],
+									"query": [
+										{
+											"key": "sellerId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:29:15 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"adsenseId\": 1,\n    \"price\": 19.19,\n    \"product\": {\n        \"id\": 19,\n        \"name\": \"manjericão\",\n        \"volumen\": 0.1,\n        \"category\": \"FRESH\"\n    }\n}"
+						},
+						{
+							"name": "Exemplo - Falha",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"product\": {\n\t\t\"id\": 19\n\t},\n\t\"price\": 19.19\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_1}}?sellerId=2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense",
+										"{{adsenseId_1}}"
+									],
+									"query": [
+										{
+											"key": "sellerId",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:29:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"Bad Request\",\n    \"status\": 400,\n    \"link\": \"https://http.cat/400\",\n    \"message\": \"Vendendor não é o proprietário deste anúncio.\",\n    \"timestamp\": \"2022-08-15T12:29:40.505606\"\n}"
+						},
+						{
+							"name": "Exemplo - Falha - sem o id do vendedor",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"product\": {\n\t\t\"id\": 19\n\t},\n\t\"price\": 19.19\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_1}}",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense",
+										"{{adsenseId_1}}"
+									],
+									"query": [
+										{
+											"key": "sellerId",
+											"value": "2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:30:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "deleteAdsense",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_1}}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"adsense",
+								"{{adsenseId_1}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Sucesso",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_1}}",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense",
+										"{{adsenseId_1}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:31:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Exemplo - Falha",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense/{{adsenseId_1}}",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense",
+										"{{adsenseId_1}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 15:31:24 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"title\": \"NotFound\",\n    \"status\": 404,\n    \"link\": \"https://http.cat/404\",\n    \"message\": \"Anúncio não cadastrado.\",\n    \"timestamp\": \"2022-08-15T12:31:24.104278\"\n}"
+						}
+					]
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8080/adsense",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8080",
+							"path": [
+								"adsense"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Exemplo - Sucesso",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8080/adsense",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8080",
+									"path": [
+										"adsense"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Aug 2022 14:27:52 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"seller\": {\n            \"id\": 1,\n            \"name\": \"Mulher Maravilha\"\n        },\n        \"product\": {\n            \"id\": 1,\n            \"name\": \"rucula\",\n            \"volumen\": 0.1,\n            \"category\": \"FRESH\"\n        },\n        \"price\": 10.99\n    },\n    {\n        \"seller\": {\n            \"id\": 1,\n            \"name\": \"Mulher Maravilha\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 2,\n            \"name\": \"Raul\"\n        },\n        \"product\": {\n            \"id\": 2,\n            \"name\": \"mozzarela de bufala\",\n            \"volumen\": 0.5,\n            \"category\": \"REFRIGERATED\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 2,\n            \"name\": \"Raul\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 3,\n            \"name\": \"Bon Jovi\"\n        },\n        \"product\": {\n            \"id\": 3,\n            \"name\": \"pernil suino\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 3,\n            \"name\": \"Bon Jovi\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 4,\n            \"name\": \"Eddy\"\n        },\n        \"product\": {\n            \"id\": 4,\n            \"name\": \"alface\",\n            \"volumen\": 0.1,\n            \"category\": \"FRESH\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 4,\n            \"name\": \"Eddy\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 5,\n            \"name\": \"Nando Reis\"\n        },\n        \"product\": {\n            \"id\": 15,\n            \"name\": \"rabada\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 5,\n            \"name\": \"Nando Reis\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 6,\n            \"name\": \"Cássia Eller\"\n        },\n        \"product\": {\n            \"id\": 6,\n            \"name\": \"frango\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    },\n    {\n        \"seller\": {\n            \"id\": 6,\n            \"name\": \"Cássia Eller\"\n        },\n        \"product\": {\n            \"id\": 39,\n            \"name\": \"fraldinha\",\n            \"volumen\": 0.6,\n            \"category\": \"FROZEN\"\n        },\n        \"price\": 15.99\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "Representante",
+			"value": "{agentId}"
+		},
+		{
+			"key": "agentId",
+			"value": "1"
+		},
+		{
+			"key": "id",
+			"value": "3"
+		},
+		{
+			"key": "agent_2",
+			"value": "2"
+		},
+		{
+			"key": "agent_1",
+			"value": "1"
+		},
+		{
+			"key": "adsenseId_1",
+			"value": "1"
+		},
+		{
+			"key": "agentId_1",
+			"value": "1"
+		},
+		{
+			"key": "orderId_1",
+			"value": "1"
+		},
+		{
+			"key": "purchaseOrderId_1",
+			"value": "1"
+		},
+		{
+			"key": "sellerId_4",
+			"value": "4"
+		},
+		{
+			"key": "adsenseId_12",
+			"value": "12"
+		}
+	]
+}

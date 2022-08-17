@@ -46,7 +46,7 @@ public class PurchaseOrderControllerTest {
     @Test
     public void testFindAdsensesByPurchaseOrderId() {
         PurchaseOrder purchaseOrder = PurchaseOrderUtils.newPurchase1ToSave();
-        List<AdsenseDto> adsenseDtoList = AdsenseDto.convertDto(AdsenseUtils.generateAdsenseList());
+        List<AdsenseDto> adsenseDtoList = AdsenseDto.convertListDto(AdsenseUtils.generateAdsenseList());
 
         BDDMockito.when(purchaseOrderService.findAdsensesByPurchaseOrderId(purchaseOrder.getId()))
                 .thenReturn(adsenseDtoList);

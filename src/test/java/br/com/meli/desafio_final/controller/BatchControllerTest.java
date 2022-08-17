@@ -2,6 +2,7 @@ package br.com.meli.desafio_final.controller;
 
 import br.com.meli.desafio_final.dto.AdsensByDueDateAndCategoryDto;
 import br.com.meli.desafio_final.dto.AdsenseBySectionAndDueDateDto;
+import br.com.meli.desafio_final.dto.BatchDto;
 import br.com.meli.desafio_final.service.implementation.BatchService;
 import br.com.meli.desafio_final.util.*;
 import org.junit.jupiter.api.Test;
@@ -60,5 +61,19 @@ class BatchControllerTest {
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(response.getBody()).isNotNull();
         assertThat(response.getBody().size()).isNotNull().isPositive().isEqualTo(2);
+    }
+
+    @Test
+    void findAllByAdsenseId() {
+        Long adsenseId = AdsenseUtils.adsenseWithId().getId();
+
+        BDDMockito.when(batchService.findAllByAdsenseId(adsenseId))
+            .thenReturn(BatchDtoUtils.generateBatchDtoList());
+
+        ResponseEntity<List<BatchDto>> response = batchController.findAllByAdsenseId(adsenseId);
+
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody()).isNotNull();
+        assertThat(response.getBody().size()).isEqualTo(3);
     }
 }

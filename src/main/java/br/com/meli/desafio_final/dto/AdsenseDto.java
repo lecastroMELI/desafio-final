@@ -27,7 +27,11 @@ public class AdsenseDto {
         this.price = adsense.getPrice();
     }
 
-    public static List<AdsenseDto> convertDto(List<Adsense> listAdsense) {
+    public static List<AdsenseDto> convertListDto(List<Adsense> listAdsense) {
         return listAdsense.stream().map(AdsenseDto::new).collect(Collectors.toList());
+    }
+
+    public static AdsenseDto convertDto(Adsense adsense) {
+        return new AdsenseDto(adsense);
     }
 }

@@ -31,6 +31,6 @@ public class InBoundOrder {
     private Agent agent;
 
     @OneToMany(mappedBy = "inBoundOrder", cascade = CascadeType.PERSIST)
-    @JsonIgnoreProperties("inBoundOrder")
+    @JsonIgnoreProperties(value = "{batchStock}", allowSetters = true)
     private List<Batch> batchStock;
 }

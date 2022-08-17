@@ -1,7 +1,5 @@
 package br.com.meli.desafio_final.service;
-import br.com.meli.desafio_final.dto.AdsenseByWarehouseDto;
-import br.com.meli.desafio_final.dto.AdsenseDto;
-import br.com.meli.desafio_final.dto.AdsenseIdDto;
+import br.com.meli.desafio_final.dto.*;
 import br.com.meli.desafio_final.model.entity.Adsense;
 import br.com.meli.desafio_final.model.enums.Category;
 
@@ -14,4 +12,8 @@ public interface IAdsenseService {
     List<Adsense> findByCategory(Category category);
     List<AdsenseByWarehouseDto> findAdsenseByWarehouseAndQuantity(Long adsenseId);
     List<AdsenseIdDto> findByProductId(Long productId);
+
+    AdsenseInsertDto insertAdsense(Adsense newAdsense);
+    AdsenseUpdateDto updateAdsenseById(Adsense adsense, Long adsenseId, Long sellerId);
+    void deleteAdsenseById(Long id);
 }

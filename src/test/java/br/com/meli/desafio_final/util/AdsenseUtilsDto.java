@@ -36,11 +36,11 @@ public class AdsenseUtilsDto {
                 .build();
     }
 
-
     public static List<AdsenseDto> generateAdsenseDtoList() {
         List<AdsenseDto> adsenseList = new ArrayList<>();
         adsenseList.add(newAdsense1ToSave());
         adsenseList.add(newAdsense2ToSave());
         return adsenseList;
     }
+
 }
